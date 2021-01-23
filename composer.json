@@ -1,0 +1,27 @@
+{
+    "name": "jean-eudes_nouaille-degorce/blog",
+    "description": "Blog Php",
+    "version": "1.0.0",
+    "type": "demo",
+    "keywords": [
+        "blog",
+        "oop",
+        "mvc"
+    ],
+    "authors": [
+        {
+        "name": "Jean-Eudes Nouaille-Degorce",
+        "email": "jeaneudes.nd@gmail.com",
+        "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "jeaneudes.nd@gmail.com",
+        "issues": "https://github.com/JEND-CODES",
+        "source": "https://github.com/JEND-CODES"
+      },
+    "require": {
+        "components/font-awesome": "^5.15",
+        "tinymce/tinymce": "^5.6"
+    }
+}
