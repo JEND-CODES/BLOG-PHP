@@ -3,7 +3,7 @@
 class RepositoryComment extends Database
 {
     
-    //cf. Tuto OpenC https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4735671-passage-du-modele-en-objet
+    // cf. Tuto OpenC https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4735671-passage-du-modele-en-objet
     
     // SÉLECTION DE TOUS LES COMMENTAIRES (AFFICHAGE POUR UN ARTICLE APRÈS VALIDATION DES COMMENTAIRES)
     public function selectComments($chapterId)

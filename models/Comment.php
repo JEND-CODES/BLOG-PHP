@@ -9,7 +9,6 @@ class Comment extends Common
     private $_alarm;
     private $_commentDate;
 
-    
     public function getId()
     {
         return $this->_id;   

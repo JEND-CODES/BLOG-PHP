@@ -3,7 +3,7 @@
 class RepositoryConnect extends Database
 {
     
-    // Sécuriser les données avec le hashage - cf. https://openclassrooms.com/fr/courses/2091901-protegez-vous-efficacement-contre-les-failles-web/2873202-protegez-les-donnees //https://sql.sh/fonctions/sha1
+    //Sécuriser les données avec le hashage - cf. https://openclassrooms.com/fr/courses/2091901-protegez-vous-efficacement-contre-les-failles-web/2873202-protegez-les-donnees //https://sql.sh/fonctions/sha1
     
     // SHA1() propose un hash en 160 bits (40 caractères)
     // Dans le langage SQL, la fonction SHA1() permet de chiffrer une chaîne de caractères sous le forme d’une chaîne de 40 caractères hexadécimal. La fonction calcule la somme de vérification SHA 1 de 160 bits comme décrit dans par la RFC 3174 (Secure Hash Algorithm)

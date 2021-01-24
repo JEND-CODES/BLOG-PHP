@@ -3,7 +3,7 @@
 class RepositoryChapter extends Database
 {
     
-    // Création de méthodes -> Pour la déclaration de méthodes, il suffit de faire précéder le mot-clé function à la visibilité de la méthode
+    //Création de méthodes -> Pour la déclaration de méthodes, il suffit de faire précéder le mot-clé function à la visibilité de la méthode
     
     // CF. Tuto OpenC https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4735671-passage-du-modele-en-objet
      // https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4678891-nouvelle-fonctionnalite-afficher-des-commentaires

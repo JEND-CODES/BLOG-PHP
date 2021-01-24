@@ -10,7 +10,7 @@ class Database
         
     	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        // Cf. https://www.php.net/manual/fr/pdo.setattribute.php
+        //Cf. https://www.php.net/manual/fr/pdo.setattribute.php
         // setAttribute -> permet par ex. de gérer le type d'erreurs lors de la connexion à la BDD - l'option ERRMODE_SILENT est l'option par défaut qui assigne simplement les messages d'erreurs (ERRMODE_SILENT - voir la documentation MySQL)
         // PDO::ATTR_ERRMODE -> renvoie un rapport d'erreurs
         // PDO::ERRMODE_EXCEPTION -> Représente une erreur émise par PDO. Pas besoin de lancer une exception PDOException depuis votre propre code

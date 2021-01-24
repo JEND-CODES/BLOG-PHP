@@ -6,7 +6,6 @@ class Connect extends Common
     private $_password;
     private $_role;
 
-    
     public function getId()
     {
         return $this->_id;    
