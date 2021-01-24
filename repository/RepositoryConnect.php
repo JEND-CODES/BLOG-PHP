@@ -20,8 +20,6 @@ class RepositoryConnect extends Database
     // cf.Database.php -> PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
 
     // VÉRIFICATION DU MEMBRE LORS DE LA CONNEXION ET LANCEMENTS CONSÉCUTIFS DE SESSIONS DANS LE CONTROLLER
-
-    // Révision de cette fonction pour simplifier l'ouverture de SESSION dans le controllerBackmember (24 janvier)
     public function checkMember($member, $member_password)
     {        
 
