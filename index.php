@@ -24,10 +24,34 @@ define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 
 // PHP ne sait pas qu'il doit appeler une fonction lorsqu'on essaye d'instancier une classe non déclarée. On va donc utiliser la fonction spl_autoload_register en spécifiant en premier paramètre le nom de la fonction à charger //cf.tuto OpenC https://openclassrooms.com/fr/courses/1665806-programmez-en-oriente-objet-en-php/1666060-utiliser-la-classe //Les classes sont chargées dynamiquement avec la fonction spl_autoload_register
 
-// Appel de toutes les classes du fichier Models :
-
+// Appel de toutes les classes du dossier Models :
+/*
 spl_autoload_register(function($modelClass){
     require('models/' .$modelClass. '.php');
+});
+*/
+
+// Changement de la fonction spl_autoload_register suite au déplacement des repositories dans la dossier repository
+// Voir sur php.net : https://www.php.net/manual/fr/language.oop5.autoload.php
+// Voir cette méthode indiquée sur php.net : https://www.php.net/manual/fr/function.spl-autoload-register.php
+
+// APPEL DE TOUTES LES CLASSES DES DOSSIERS MODELS ET REPOSITORY
+spl_autoload_register(function($modelClass) {
+
+    // Define an array of directories in the order of their priority to iterate through.
+    $dirs = array(
+        'models/',
+        'repository/', 
+    );
+
+    // Looping through each directory to load all the class files. It will only require a file once.
+    // If it finds the same class in a directory later on, IT WILL IGNORE IT! Because of that require once!
+    foreach( $dirs as $dir ) {
+        if (file_exists($dir.$modelClass.'.php')) {
+            require_once($dir.$modelClass.'.php');
+            return;
+        }
+    }
 });
 
 // Contrôle de l'affichage des pages :
@@ -60,7 +84,7 @@ try
         //Appel de la vue racine du site (Accueil)
         require_once('controllers/controllerHome.php');
         
-        // Appel par défaut de la fonction de la classe ControllerHome qui génère la Homepage
+        // Appel par défaut de la fonction de la classe ControllerHome qui génère une liste de chapitres -> en appelant la fonction selectChapters du RepositoryChapter -> Repository qui "extends" la classe Database
         
         $controllerHome = new ControllerHome();
         $controllerHome();
