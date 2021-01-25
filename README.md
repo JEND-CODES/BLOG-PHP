@@ -1,7 +1,7 @@
 # BLOG-PHP
-Blog Php
+- Avancées du projet de Blog Php (architecture MVC et programmation orientée objet)
 
-# Mise à jour du dossier le 24 janvier
+## Mise à jour du projet le 24 janvier
 - Mise à jour du Router (fonction spl_autoload dans index.php)
 - Ajout des Entités (Models après vérifications)
 - Ajout du dossier Repository (qui gère les requêtes Sql)
