@@ -10,3 +10,4 @@ Blog Php
 - Révision de la fonction checkMember() dans repositoryConnect.php
 - Dépôt des dépendances Composer pour vérifications par Mentor
 - Suppression de la pagination php en fonction du strlen() qui risque de briser les balises HTML et provoquer des erreurs d'affichage
+- Révisions des diagrammes effectués en parallèle de l'élaboration du Blog (diagrammes de cas d'utilisations, diagrammes de classes, séquence de gestion en back office, modèle de données, concepteur Sql)
