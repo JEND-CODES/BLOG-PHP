@@ -4,8 +4,25 @@ $(document).ready(function () {
     const copy_value = $('#pseudo_checked').val(); // get the value from the first input
     $("#input_checked").val(copy_value); // set the value to another input
 
+    // Scroll to top button
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            $('#back-to-top').fadeIn();
+        } else {
+            $('#back-to-top').fadeOut();
+        }
+    });
+    // scroll body to 0px on click
+    $('#back-to-top').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
+        return false;
+    });
+
     // jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
     // Pagination des commentaires (plugin Jquery simplePagination.js)
+    /*
     var items = $(".list-wrapper");
     var numItems = items.length;
     var perPage = 8;
@@ -23,5 +40,6 @@ $(document).ready(function () {
             items.hide().slice(showFrom, showTo).show();
         }
     });
+    */
 
 });
