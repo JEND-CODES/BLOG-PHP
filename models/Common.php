@@ -1,4 +1,5 @@
 <?php
+
 class Common
 {
     
@@ -7,7 +8,8 @@ class Common
         $this->hydrate($data);
     }
     
-    //Méthode hydrate - L'hydratation consiste à transformer le contenu d'une base de données en objets // Voir tuto OpenC https://openclassrooms.com/fr/courses/1665806-programmez-en-oriente-objet-en-php/1666289-manipulation-de-donnees-stockees
+    // Méthode hydrate - L'hydratation consiste à transformer le contenu d'une base de données en objets 
+    // Voir tuto OpenC https://openclassrooms.com/fr/courses/1665806-programmez-en-oriente-objet-en-php/1666289-manipulation-de-donnees-stockees
     
     public function hydrate(array $data)
     {

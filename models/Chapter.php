@@ -1,8 +1,9 @@
 <?php
+
 class Chapter extends Common
 {
     
-    //Création d'attributs - Pour déclarer des attributs, on va donc les écrire entre les accolades, les uns à la suite des autres, en faisant précéder leurs noms du mot-clé private //Vous pouvez constater que chaque attribut est précédé d'un underscore (« _ »). Ceci est une notation qu'il est préférable de respecter (il s'agit de la notation PEAR) qui dit que chaque nom d'élément privé doit être précédé d'un underscore
+    // Création d'attributs - Pour déclarer des attributs, on va donc les écrire entre les accolades, les uns à la suite des autres, en faisant précéder leurs noms du mot-clé private //Vous pouvez constater que chaque attribut est précédé d'un underscore (« _ »). Ceci est une notation qu'il est préférable de respecter (il s'agit de la notation PEAR) qui dit que chaque nom d'élément privé doit être précédé d'un underscore
 
     private $_id;
     private $_title;
@@ -20,7 +21,7 @@ class Chapter extends Common
 
     // Pour lire ou modifier un attribut, on utilise des accesseurs (getters) et des mutateurs (setters)
     
-    // getters
+    // GETTERS
     // lorsque les attributs des objets sont inaccessibles (private et encapsulés dans une classe) -> Il faut créer des getters pour pouvoir les lire, et des setters pour pouvoir modifier leurs valeurs.
     
     // Appeler les méthodes de l'objet - Pour appeler une méthode d'un objet, il va falloir utiliser un opérateur : il s'agit de l'opérateur " -> " 
@@ -62,6 +63,7 @@ class Chapter extends Common
         return $this->_userid;
     }  
     
+    // SETTERS
     // fonction setId vérifie si l'ID est bien supérieur à zéro (ce qui doit forcément être le cas dans la table SQL)
     public function setId($id)
     {
@@ -112,4 +114,5 @@ class Chapter extends Common
         if($userid >= 0)
             $this->_userid = $userid;
     }
+
 }

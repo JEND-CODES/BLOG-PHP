@@ -1,4 +1,5 @@
 <?php
+
 class Comment extends Common
 {
     private $_id;
@@ -9,6 +10,7 @@ class Comment extends Common
     private $_alarm;
     private $_commentDate;
 
+    
     public function getId()
     {
         return $this->_id;   
@@ -82,4 +84,5 @@ class Comment extends Common
     {
         $this->_commentDate = $commentDate;
     }
+    
 }
