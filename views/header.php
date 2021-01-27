@@ -14,7 +14,7 @@
 
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
 
-    <link rel="icon" type="image/png" href="<?= URL.'content/theme/img/FaviconBlog.png' ?>" />
+    <link rel="icon" type="image/png" href="<?= URL.'content/theme/img/starIconBlue.png' ?>" />
 
     <link href="content/theme/bootstrap/css/bootstrap.min.css" rel="stylesheet">
  
@@ -37,9 +37,9 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
 
-                <a class="navbar-brand special-logo" href="<?= URL ?>" style="letter-spacing:3px !important;">BLOG</a>
+                <a class="navbar-brand special-logo" href="<?= URL ?>">BLOG</a>
 
-                <img class="logo-img" src="content/theme/img/BlogIcon.png" alt="BLOG" title="BLOG">
+                <img class="logo-img" src="content/theme/img/starIconBlue.png" alt="BLOG" title="BLOG">
 
             </div>
 
