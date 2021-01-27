@@ -1,5 +1,5 @@
 <?php 
-    $nav_title = "Page introuvable"; 
+    $nav_title = "PAGE INTROUVABLE"; 
 ?>
 
 <?php
@@ -9,6 +9,7 @@
     require_once('views/header.php');
         
 ?>
+
 <div class="big-spacer"></div>
 <div class="big-spacer"></div>
 

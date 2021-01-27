@@ -1,5 +1,5 @@
 <?php 
-$nav_title = "Connexion"; 
+$nav_title = "CONNEXION"; 
 ?>
 
 <?php require_once('views/header.php'); ?>
@@ -8,7 +8,7 @@ $nav_title = "Connexion";
 
     <div class="big-spacer"></div>
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
           <div class="row vertical-center">
 
@@ -27,12 +27,12 @@ $nav_title = "Connexion";
                 <?php endif; ?>
 
                 <p>
-                  <label class="sr-only" for="">Identifiant</label>
+                  <label class="sr-only">Identifiant</label>
                   <input name="member" value="<?php if(isset($member)) echo $member; ?>" class="form-control" type="text" placeholder="IDENTIFIANT" required autofocus>
                 </p>
 
                 <p>
-                  <label class="sr-only" for="">Mot de passe</label>
+                  <label class="sr-only">Mot de passe</label>
                   <input name="member_password" placeholder="MOT DE PASSE" class="form-control" type="password" required>
                 </p>
               

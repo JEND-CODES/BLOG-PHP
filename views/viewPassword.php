@@ -1,5 +1,5 @@
 <?php 
-$nav_title = "Modifier le mot de passe"; 
+$nav_title = "MODIFICATION DU MOT DE PASSE"; 
 ?>
 
 <?php require_once('views/header.php'); ?>
@@ -14,60 +14,58 @@ $nav_title = "Modifier le mot de passe";
 
     <div class="container-fluid">
 
-          <div class="row vertical-center">
+        <div class="row vertical-center">
 
-              <form action="password" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5">
+            <form action="password" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5">
+    
+                  <?php 
+                  
+                  if(isset($nouveau)): ?>
       
-                    <?php 
-                    
-                    if(isset($nouveau)): ?>
-        
                     <p><?= $nouveau ?></p>
-        
-                    <?php endif; ?>
-        
-                    <?php 
-                        
-                    if(!empty($errors)): ?>
-        
+      
+                  <?php endif; ?>
+      
+                  <?php 
+                      
+                  if(!empty($errors)): ?>
+      
                     <?php foreach($errors as $error): ?>
                     
-                    <p><?= $error ?></p>
+                      <p><?= $error ?></p>
                     
                     <?php endforeach; ?>
-        
-                    <?php endif; ?>
+      
+                  <?php endif; ?>
 
-                <p>
-                  <label class="sr-only" for="">Mot de passe actuel</label>
-                  <input type="password" name="password" value="<?php if(isset($password)) echo $password;?>" placeholder="PASSWORD ACTUEL" class="form-control" required autofocus>
-                </p>
+              <p>
+                <label class="sr-only">Mot de passe actuel</label>
+                <input type="password" name="password" value="<?php if(isset($password)) echo $password;?>" placeholder="PASSWORD ACTUEL" class="form-control" required autofocus>
+              </p>
 
-                <p>
-                  <label class="sr-only" for="">Nouveau mot de passe</label>
-                  <input type="password" name="password2" value="<?php if(isset($password2)) echo $password2;?>" placeholder="NOUVEAU PASSWORD" class="form-control" required autofocus>
-                </p>
+              <p>
+                <label class="sr-only">Nouveau mot de passe</label>
+                <input type="password" name="password2" value="<?php if(isset($password2)) echo $password2;?>" placeholder="NOUVEAU PASSWORD" class="form-control" required autofocus>
+              </p>
 
-                <p>
-                  <label class="sr-only" for="">Confirmation</label>
-                  <input type="password" name="checkpwd2" placeholder="CONFIRMATION" class="form-control" required>
-                </p>
+              <p>
+                <label class="sr-only">Confirmation</label>
+                <input type="password" name="checkpwd2" placeholder="CONFIRMATION" class="form-control" required>
+              </p>
+            
+              <button class="btn btn-success btn-block" type="submit">MODIFIER</button>
               
-                <button class="btn btn-success btn-block" type="submit">MODIFIER</button>
-                
-              </form>
+            </form>
 
-              
-
-          </div>
-          
         </div>
-
+          
+    </div>
 
     <div class="big-spacer"></div>
     <div class="big-spacer"></div>
     <div class="big-spacer"></div>
 
 </div>
+
 
 <?php require_once('views/footer.php'); ?>
