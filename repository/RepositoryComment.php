@@ -3,7 +3,7 @@
 class RepositoryComment extends Database
 {
     
-    // cf. Tuto OpenC https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4735671-passage-du-modele-en-objet
+    // Cf. Tuto OpenC https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4735671-passage-du-modele-en-objet
     
     // SÉLECTION DE TOUS LES COMMENTAIRES (AFFICHAGE POUR UN ARTICLE APRÈS VALIDATION DES COMMENTAIRES)
     public function selectComments($chapterId)
@@ -103,41 +103,52 @@ class RepositoryComment extends Database
 
     // Tuto Pagination Php : https://nouvelle-techno.fr/actualites/mettre-en-place-une-pagination-en-php
 
-    // ON DÉTERMINE LE NOMBRE TOTAL DE COMMENTAIRES
+    // TENTATIVE DE PAGINATION -> ON DÉTERMINE LE NOMBRE TOTAL DE COMMENTAIRES
     public function totalComments()
     {
         $req = $this->connectDB()->prepare('SELECT COUNT(*) AS nb_comments FROM cv_comments');
+
         $req->execute();
+
         $result = $req->fetch();
+
         $nbComments = (int) $result['nb_comments'];
+
         return $nbComments;
+
         $req->closeCursor();
     }
 
-    // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT POUR TEST PAGINATION (viewAbc.php)
-    public function selectAllComments()
-    {
-        $allComments = [];
+    // NOUVELLE TENTATIVE DE PAGINATION (25 janvier)
+    // function getbillets($offset, $limit){
+    function pagination($limit){
         
-        $req = $this->connectDB()->prepare(
-            'SELECT *, 
-            date AS commentDate 
-            FROM cv_comments 
-            ORDER BY id 
-            DESC'
-        );
-        $req->execute(); 
+        $comment_lists = [];
+
+        // Apparemment on peut se passer de ces deux lignes..
+        // $offset = (int)$offset;
+        // $limit = (int)$limit;
+         
+        // $req = $bdd->prepare('SELECT * FROM cv_comments LIMIT :offset,:limit');
+
+        $req = $this->connectDB()->prepare('SELECT * FROM cv_comments LIMIT :limit, 5');
+
+        // $req->bindParam(':offset',$offset, PDO::PARAM_INT);
+
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+        $req->execute();
 
         while($data = $req->fetch())
         {
-            $allComments[] = new Comment($data);
+            $comment_lists[] = new Comment($data);
         }
 
-        return $allComments;
-        
-        $req->closeCursor();        
-    }
+        return $comment_lists;
 
+        $req->closeCursor(); 
+            
+    }
 
 
 
