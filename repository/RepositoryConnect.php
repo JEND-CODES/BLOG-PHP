@@ -27,6 +27,7 @@ class RepositoryConnect extends Database
 
         $req = $this->connectDB()->prepare('SELECT id FROM cv_managers WHERE user= ? AND password = ? AND role = 1');
 
+        // Changement de sha1 à sha256 pour renforcer la sécurité
         $req->execute(array($member, hash('sha256', $member_password)));
 
         if($req->rowCount() == 1)
