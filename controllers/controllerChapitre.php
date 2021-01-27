@@ -1,16 +1,18 @@
 <?php
 
-// POO class -> Affichage de chaque chapitre et des commentaires associés
+// AFFICHAGE DE CHAQUE ARTICLE ET DES COMMENTAIRES ASSOCIÉS
 
 class ControllerChapitre
 {
     private $show_post;
+
     private $commentaries;
     
     public function __construct()
     {
         
         $this->show_post = new RepositoryChapter();
+
         $this->commentaries = new RepositoryComment();
     }
  
@@ -18,23 +20,23 @@ class ControllerChapitre
     {
     
         session_start();
-        // Contrôle du paramètre Get correspondant à l'Id 
-        // Le controller fait un test, un contrôle : il vérifie qu'on a reçu ou non en paramètre un id dans l'url ( $_GET['id']
+        // Contrôle du paramètre Get correspondant à l'Id de l'article
+        // Le controller fait un test, un contrôle : il vérifie qu'on a reçu ou non en paramètre un id dans l'url ( $_GET['id'] )
 
         if(empty($_GET['id']) OR !is_numeric($_GET['id']))
             throw new Exception('Page introuvable'); 
         else
         {
             extract($_GET);
-            //méthode pour récupérer l'ID du chapitre
+            // Méthode pour récupérer l'ID du chapitre
 
             $id = htmlentities($id);
 
-            // Contrôle des champs obligatoires pour commenter un chapitre
-            
+            // Contrôle des champs obligatoires pour commenter un article
             if(!empty($_POST['add']))
             {
                 extract($_POST);
+
                 $errors = array();
                 
                 // Le tableau $errors doit rester vide pour valider le formulaire 
@@ -48,7 +50,7 @@ class ControllerChapitre
                 $comment = htmlentities($comment);
 
                 if(empty($pseudo))
-                    array_push($errors, 'Nom manquant');
+                    array_push($errors, 'Pseudo manquant');
 
                 if(!empty($pseudo) && strlen($pseudo)<3)
                     array_push($errors, 'Votre pseudo est trop court');
@@ -69,11 +71,9 @@ class ControllerChapitre
                 if(!empty($comment) && strlen($comment)>280)
                     array_push($errors, 'Votre commentaire est trop long');
 
-                // Ajout d'un commentaire dans la base de données
-
+                // S'il n'y a pas d'erreurs, ajout d'un commentaire dans la base de données
                 if(count($errors) == 0)
                 { 
-
                     $insertcom = new Comment(array('chapterId'=>$id, 'pseudo'=>$pseudo, 'comment'=>$comment, 'email'=>$email));
                     
                     $this->commentaries->insertComment($insertcom);
@@ -87,7 +87,7 @@ class ControllerChapitre
             }
 
 
-            // Sélection de l'ID d'un chapitre avec format de date modifié
+            // Sélection de l'ID d'un article avec format de date modifié
             $chapter = $this->show_post->selectChapterFront($id);
             
             // Select article précédent
@@ -96,25 +96,20 @@ class ControllerChapitre
             // Select article suivant
             $nextChapter = $this->show_post->nextChapter($id);
 
-            // Sélection des commentaires associés à chaque chapitre
+            // Sélection des commentaires associés à chaque article
             $comments = $this->commentaries->selectComments($id);
 
             if($comments == NULL)
             {
-               
                 $nocomment = '<p>Encore aucun commentaire pour cet article</p>';
-
             } else
             {
-              
                 $nocomment = '<h3>Commentaires</h3>';
-
             }
-
 
         }
 
-             require_once('views/viewChapitre.php');
+        require_once('views/viewChapitre.php');
          
     }
     

@@ -1,6 +1,6 @@
 <?php
 
-// POO class -> Mise à jour d'un chapitre en Back Office
+// MISE À JOUR D'UN ARTICLE EN BACK OFFICE
 
 class ControllerChangepost
 { 
@@ -68,14 +68,13 @@ class ControllerChangepost
 
                     $checked = 'Article modifié';
 
-                    //unset($title);
-                    //unset($content);
-                    //unset($chapi);
                 }
             }
 
 
         }
-            require_once('views/viewChangepost.php');
+
+        require_once('views/viewChangepost.php');
+
     }
 }

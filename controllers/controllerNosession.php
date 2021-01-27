@@ -1,19 +1,18 @@
 <?php
 
+// FIN DE SESSIONS
+
 class ControllerNosession
 {
     
     public function __invoke()
     {
   
-        //session_start — Démarre une nouvelle session ou reprend une session existante
-        //https://www.php.net/manual/fr/function.session-start.php
+        // session_start — Démarre une nouvelle session ou reprend une session existante
+        // https://www.php.net/manual/fr/function.session-start.php
         session_start();
 
-        // Désactivation de la SESSION Administrateur
-        //unset($_SESSION['connect']);
-
-        // NEW !! Désactivation de la SESSION Membre Premium
+        // Désactivation de la SESSION Membres Premium
         unset($_SESSION['premium']);
         unset($_SESSION['member_id']);
 

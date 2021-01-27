@@ -1,6 +1,6 @@
 <?php
 
-// POO class -> Changement de mot de passe en Back Office
+// CHANGEMENT DE MOT DE PASSE EN BACK OFFICE POUR L'ADMINISTRATEUR
 
 class ControllerPassword
 {
@@ -16,14 +16,6 @@ class ControllerPassword
     {
 
         session_start();
-
-        //if(empty($_SESSION['connect']))
-        //header('Location:'.URL.'login');
-        
-        //$connect = $this->new_pass->selectUser($_SESSION['connect']);
-
-        //if(empty($_SESSION['premium']))
-            //header('Location:'.URL.'home');
 
         if($_SESSION['member_id'] != 1)
             header('Location:'.URL.'home');
@@ -44,7 +36,7 @@ class ControllerPassword
             if(empty($password))
                 array_push($errors, 'Entrez le mot de passe actuel');
 
-            if(!empty($password) && sha1($password) != $connect->getPassword())
+            if(!empty($password) && hash('sha256', $password) != $connect->getPassword())
                 array_push($errors, 'Mot de passe actuel inexact');
 
             if(empty($password2))
@@ -61,7 +53,7 @@ class ControllerPassword
 
             if(count($errors) == 0)
             { 
-                $connect->setPassword(sha1($password2));
+                $connect->setPassword(hash('sha256', $password2));
 
                 $this->new_pass->updatePassword($connect);
 

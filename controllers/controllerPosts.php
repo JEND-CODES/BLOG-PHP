@@ -1,5 +1,7 @@
 <?php
 
+// LISTE DES DERNIERS ARTICLES
+
 class ControllerPosts
 {
     private $posts;
@@ -18,7 +20,6 @@ class ControllerPosts
         
         $chapters = $this->posts->selectChaptersDesc();
         
-       
         require_once('views/viewPosts.php');
 
     }

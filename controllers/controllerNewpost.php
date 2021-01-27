@@ -1,6 +1,6 @@
 <?php
 
-// POO class -> Edition d'un nouveau chapitre en Back Office
+// EDITION D'UN NOUVEL ARTICLE EN BACK OFFICE
 
 class ControllerNewpost
 {

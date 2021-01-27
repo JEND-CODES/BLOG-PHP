@@ -1,6 +1,6 @@
 <?php
 
-// Login et Session pour les membres premium du blog
+// LOGIN ET SESSIONS POUR LES MEMBRES PREMIUM DU BLOG
 
 class ControllerAccess
 {
@@ -19,14 +19,8 @@ class ControllerAccess
         
         // Si la session est en cours pour un membre
         if(!empty($_SESSION['premium']))
-
-        // Go to Back office Membres !!!
-        header('Location:'.URL.'backmember');
-
-        // NEW !! Si la session Admin est en cours
-        // if(!empty($_SESSION['connect']))
-        // Alors redirection au Back off Admin
-            // header('Location:'.URL.'connect');
+            // Go to Back office Membres
+            header('Location:'.URL.'backmember');
 
         if(!empty($_POST))
         {
@@ -34,8 +28,7 @@ class ControllerAccess
             
             $errors = array();
 
-            // Sécurisation contre injections
-
+            // Sécurisations contre injections
             $member = htmlentities($member);
 
             $member_password = htmlentities($member_password);
@@ -52,28 +45,23 @@ class ControllerAccess
                 
                 $return = $this->member_log->checkMember($member, $member_password);
 
-                // if(!$this->member_log->checkMember($member, $member_password))
-
                 if(!$return)
                     array_push($errors, 'Mauvais identifiants ou compte en attente de validation');
                 else
                 {
 
-                    //Activation de $_SESSION 
-                    //https://www.php.net/manual/fr/reserved.variables.session.php
-                    //https://www.php.net/manual/fr/ref.session.php
+                    // Activation de $_SESSION 
+                    // https://www.php.net/manual/fr/reserved.variables.session.php
+                    // https://www.php.net/manual/fr/ref.session.php
                     
                     // Stockage en SESSION du Pseudo du membre connecté
                     $_SESSION['premium'] = $member;
 
-                    //$_SESSION['truc'] = ['username' => $member, 'password' => $member_password];
-
                     // Stockage en SESSION de l'ID du membre connecté
                     $_SESSION['member_id'] = $return;
                     
-                    // Ici il faut définir un accès au Back Office dédié uniquement aux membres premium
+                    // L'accès au Back Office est dédié uniquement aux membres premium
                     header('Location:'.URL.'backmember');
-
                     
                 }
             }

@@ -1,5 +1,7 @@
 <?php
 
+// PAGE D'ACCUEIL
+
 class ControllerHome
 {
    

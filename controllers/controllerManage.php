@@ -1,9 +1,9 @@
 <?php
 
+// GESTION DES MEMBRES EN BACK OFFICE
+
 class ControllerManage
 {
-    private $admin_connect;
-
     // Récupération infos utilisateurs
     private $admin_infos;
     
@@ -18,26 +18,14 @@ class ControllerManage
     {
   
         session_start();
-        
-        // Si la session Admin n'est pas en cours
-        //if(empty($_SESSION['connect']))
-            // Alors redirection à la page de Connexion Admin
-            //header('Location:'.URL.'login');
-
-        // Si la session Admin n'est pas en cours
-        //if(empty($_SESSION['premium']))
-            // Alors redirection à la page de Connexion Admin
-            //header('Location:'.URL.'home');
 
         if($_SESSION['member_id'] != 1)
             header('Location:'.URL.'home');
 
-        // NEW !! Pour affichage de toutes les infos des utilisateurs inscrits sur le blog
-
-        // Les membres premium
+        // Affichage des membres premium
         $getManagers = $this->admin_infos->infoManagers();
         
-        // Les nouveaux inscrits en attente de validation
+        // Affichage des nouveaux inscrits en attente de validation
         $getFutureMembers = $this->admin_infos->newRegistered();
         
 

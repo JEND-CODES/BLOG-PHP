@@ -1,6 +1,6 @@
 <?php
 
-// POO class -> Gestion des commentaires en Back Office
+// GESTION DES COMMENTAIRES EN BACK OFFICE
 
 class ControllerCommentaires
 {
