@@ -495,11 +495,11 @@ form .row:first-child .floating-label-form-group {
 
 .comment-dashboard-title {
     margin-bottom: 20px !important;
+    margin-top: 60px !important;
 }
 
 .comment-dashboard-title-2 {
     margin-bottom: 20px !important;
-    margin-top: 60px !important;
 }
 
 .manage-dashboard {
@@ -559,6 +559,84 @@ form .row:first-child .floating-label-form-group {
 
 .back-to-top:hover {
     color: #c0c0c0 !important;
+}
+
+.special_btn_nbr_0 {
+    opacity:0 !important;
+}
+
+.special-chevron {
+    position:absolute !important;
+    color:#5bc0de !important;
+    pointer-events: none !important;
+    margin-left:14px !important;
+    margin-top:10px !important;
+}
+
+.pagination-form {
+    display:inline-block !important;
+}
+
+/* jQuery Plugin Pagination CSS*/
+.list-wrapper {
+	padding: 15px !important;
+	overflow: hidden !important;
+}
+
+.list-item {
+	border: 1px solid #EEE !important;
+	background: #FFF !important;
+	margin-bottom: 10px !important;
+	padding: 10px !important;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
+}
+
+.list-item h4 {
+	color: #5bc0de !important;
+	font-size: 18px !important;
+	margin: 0 0 5px !important;	
+}
+
+.list-item p {
+	margin: 0 !important;
+}
+
+.simple-pagination ul {
+	margin: 0 0 20px !important;
+	padding: 0 !important;
+	list-style: none !important;
+	text-align: center !important;
+}
+
+.simple-pagination li {
+	display: inline-block !important;
+	margin-right: 5px !important;
+}
+
+.simple-pagination li a:hover {
+    background: #5bc0de !important;
+    color:white !important;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+	color: #666 !important;
+	padding: 5px 10px !important;
+	text-decoration: none !important;
+	border: 1px solid #EEE !important;
+	background-color: #FFF !important;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
+}
+
+.simple-pagination .current {
+	color: #FFF!important;
+	background-color:#5bc0de !important;
+	border-color:#5bc0de !important;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+	background: #5bc0de !important;
 }
 
 /* Media Queries max-width: 991px */
