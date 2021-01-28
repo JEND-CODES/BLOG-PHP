@@ -28,10 +28,58 @@ class ControllerBackmember
 
         if($_SESSION['member_id'] == 1)
         {
-            $postsAuthors = $this->filter_chapters->selectAllPosts();
+
+            // Renvoi du nombre total d'articles
+            $count_chapters = $this->filter_chapters->totalChapters();
+
+            // Gestion de la pagination pour l'administrateur
+            if(empty($_POST['next_page']))
+            {   
+
+                $limit = 0;
+
+                $postsAuthors = $this->filter_chapters->selectAllPosts($limit);     
+            }
+        
+            for ($i = 0; $i < $count_chapters; $i++) {
+
+                if(!empty($_POST['next_page_'.$i]))
+                {
+
+                    $new_limit = $i * 5;
+
+                    $postsAuthors = $this->filter_chapters->selectAllPosts($new_limit); 
+
+                }
+            }
+
         } else 
         {
-            $postsAuthors = $this->filter_chapters->selectPostsByUserId();
+
+            // Renvoi du nombre total d'articles publiés par un membre
+            $count_chapters = $this->filter_chapters->countPostsByUser();
+
+            // Gestion de la pagination pour un membre
+            if(empty($_POST['next_page']))
+            {   
+
+                $limit = 0;
+
+                $postsAuthors = $this->filter_chapters->selectPostsByUserId($limit);     
+            }
+        
+            for ($i = 0; $i < $count_chapters; $i++) {
+
+                if(!empty($_POST['next_page_'.$i]))
+                {
+
+                    $new_limit = $i * 5;
+
+                    $postsAuthors = $this->filter_chapters->selectPostsByUserId($new_limit); 
+
+                }
+            }
+
         }
 
         if(!empty($_POST['delete']))

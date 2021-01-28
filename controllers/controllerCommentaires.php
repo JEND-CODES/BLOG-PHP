@@ -15,15 +15,38 @@ class ControllerCommentaires
     {
       
         session_start();
-        
-        //if(empty($_SESSION['connect']))
-            //header('Location:'.URL.'login');
-
-        //if(empty($_SESSION['premium']))
-            //header('Location:'.URL.'access');
 
         if($_SESSION['member_id'] != 1)
-            header('Location:'.URL.'home');    
+            header('Location:'.URL.'home');
+            
+        // Total des commentaires validés par l'administrateur
+        $count_comments = $this->back_comment->checkedComments();
+
+        // Affichage des commentaires en attente de validation
+        $alarmComments = $this->back_comment->selectAlarmComments();
+        
+        // Affichage des commentaires déjà validés (avec pagination, 5 par page)
+        if(empty($_POST['next_page']))
+        {
+
+            $limit = 0;
+
+            $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($limit);     
+        }
+        
+
+        for ($i = 0; $i < $count_comments; $i++) {
+
+            if(!empty($_POST['next_page_'.$i]))
+            {
+
+                $new_limit = $i * 3;
+
+                $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($new_limit); 
+
+            }
+
+        }
 
         if(!empty($_POST['delete']))
         {
@@ -33,10 +56,6 @@ class ControllerCommentaires
 
             $drop = 'Commentaire supprimé';     
         }
-
-        $alarmComments = $this->back_comment->selectAlarmComments();
-
-        $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc();
 
         if(!empty($_POST['show']))
             {
@@ -50,4 +69,5 @@ class ControllerCommentaires
         require_once('views/viewCommentaires.php');
       
     }
+
 }
