@@ -149,6 +149,37 @@ $nav_title = "BACK OFFICE";
     </div>
 
 </div>
+           
+<!-- Pagination -->
+<div class="container">
+
+    <?php if($count_chapters > 4): ?>
+
+        <i class="fas fa-chevron-left special-chevron"></i>
+
+    <?php endif; ?>
+
+    <?php 
+
+    $numberBtn = floor($count_chapters / 5);
+
+    foreach(range(0, $numberBtn) as $item): ?>
+
+        <form class="pagination-form" action="backmember?page=<?= $item ?>" method="post">
+
+            <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
+
+        </form>
+
+    <?php endforeach; ?>
+
+</div>
+
+<?php if($count_chapters < 2): ?>
+
+    <div class="big-spacer"></div>
+
+<?php endif; ?>
 
 
 <?php require_once('views/footer.php'); ?>

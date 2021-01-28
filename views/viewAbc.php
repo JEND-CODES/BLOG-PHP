@@ -12,21 +12,18 @@ $nav_title = "Test Pagination";
 // echo $billy;
 ?>
 
-<br /><br />
 
 <?php
 // var_dump($count_comments);
 // var_dump($_POST);
 ?>
 
-<br /><br />
 
 <?php
 //print_r($count_comments);
 //echo $count_comments;
 ?>
 
-<br /><br />
 
 <?php
 /*
@@ -37,7 +34,6 @@ foreach ($_POST as $name => $value) {
 */
 ?>
 
-<br /><br />
 
 <?php
 //for ($i=0; $i < $count_comments; $i++)
@@ -49,7 +45,10 @@ foreach ($_POST as $name => $value) {
 <?php
 foreach($comment_lists as $comment_list): ?>
 
+<div class="container">
     <h5 style="border:1px solid blue;"><?= $comment_list->getPseudo() ?></h5>
+    <p style="border:1px solid cornflowerblue;font-size:12px !important;"><?= $comment_list->getComment() ?></p>
+</div>
 
 <?php endforeach; ?>
 
@@ -78,6 +77,10 @@ foreach($comment_lists as $comment_list): ?>
 
 <!--<div id="pagination-container"></div>-->
 
+<div class="container">
+
+<i class="fas fa-chevron-left special-chevron"></i>
+
 <?php 
 
 // Division avec arrondi du résultat
@@ -88,11 +91,13 @@ foreach($comment_lists as $comment_list): ?>
 // $new_count = $count_comments / 5;
 // echo $new_count;
 
-// Résultat de la division arrondie à l'entier le plus proche
+// Résultat de la division arrondie à l'entier supérieur le plus proche
 // echo $numberBtn;
 
 // La fonction floor() arrondit à l'entier inférieur le plus proche
 $numberBtn = floor($count_comments / 5);
+// Résultat de la division arrondie à l'entier inférieur le plus proche
+//echo $numberBtn;
 
 // Boucle pour générer un nombre d'input correspondant à la division du nombre total de messages par 5 (on veut ici 5 messages par page)
 // Avec le résultat de cette boucle, on injecte la valeur $item dans le formulaire et dans l'input (?page=, name et value)
@@ -102,9 +107,9 @@ $numberBtn = floor($count_comments / 5);
 
 foreach(range(0, $numberBtn) as $item): ?>
 
-    <form action="abc?page=<?= $item ?>" method="post">
+    <form style="display:inline-block !important;" action="abc?page=<?= $item ?>" method="post">
 
-        <input style="width:100%;" class="btn btn-info" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
+        <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
 
     </form>
 
@@ -112,7 +117,7 @@ foreach(range(0, $numberBtn) as $item): ?>
 
 
 
-
+</div>
 
 
 

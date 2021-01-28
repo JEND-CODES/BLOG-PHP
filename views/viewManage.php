@@ -88,7 +88,7 @@ $nav_title = "GESTION DES MEMBRES";
 
         foreach($getManagers as $getManager): ?>
 
-            <div class="col-xs-10 col-xs-offset-1 col-md-12 manage-dashboard">
+            <div class="col-xs-10 col-xs-offset-1 col-md-12 manage-dashboard list-wrapper">
 
                 <div class="row block centered-text">
 
@@ -97,7 +97,7 @@ $nav_title = "GESTION DES MEMBRES";
                     <div class="col-md-4 special-manage-col-1">
                     
                         <p>Pseudo : <?= ucfirst($getManager->getUser()) ?></p>
-
+                        
                     </div>
 
                     <div class="col-md-3 special-manage-col-2">
@@ -123,6 +123,8 @@ $nav_title = "GESTION DES MEMBRES";
     </div>
 
 </div>
+
+<div id="pagination-container"></div>
 
 
 <?php require_once('views/footer.php'); ?>

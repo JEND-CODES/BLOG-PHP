@@ -37,6 +37,70 @@ $nav_title = "GESTION DES COMMENTAIRES";
         </div>
 
         <div class="col-xs-10 col-xs-offset-1 col-md-10 margin">
+            
+            <h4 class="centered-text comment-dashboard-title-2">Commentaires publiés</h4>
+
+        </div>
+
+        <?php foreach($alarmComments2 as $alarmComment2): ?>
+
+            <div class="col-xs-10 col-xs-offset-1 col-md-10 comment-dashboard">
+
+                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst($alarmComment2->getPseudo()) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= $alarmComment2->getEmail() ?></a> le 
+
+                <?php
+
+                $sql_Date_2 = $alarmComment2->getCommentDate();
+
+                $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
+
+                echo str_replace($month_1,$month_2,$new_Date_Format_2);
+
+                ?>
+
+                &#8239;: </p>
+
+                <p>''&nbsp;<?= $alarmComment2->getComment() ?>&nbsp;''</p>
+
+                <form action="commentaires" method="post">
+
+                    <input type="hidden" name="act" value="<?= $alarmComment2->getId() ?>" />
+
+                    <input type="submit" name="delete" class="btn" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ?'));" />
+
+                </form>
+    
+            </div>
+
+        <?php endforeach; ?>
+
+        <!-- Pagination des commentaires publiés -->
+        <div class="col-xs-10 col-xs-offset-1 col-md-10">
+
+            <?php if($count_comments > 2): ?>
+
+                <i class="fas fa-chevron-left special-chevron"></i>
+
+            <?php endif; ?>
+
+            <?php 
+
+            $numberBtn = floor($count_comments / 3);
+
+            foreach(range(0, $numberBtn) as $item): ?>
+
+                <form class="pagination-form" action="commentaires?page=<?= $item ?>" method="post">
+
+                    <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
+
+                </form>
+
+            <?php endforeach; ?>
+
+        </div>
+        <!-- Fin de pagination -->
+
+        <div class="col-xs-10 col-xs-offset-1 col-md-10 margin">
 
             <h4 class="centered-text comment-dashboard-title">Commentaires à valider</h4>
 
@@ -72,44 +136,6 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 </form>
 
-            </div>
-
-        <?php endforeach; ?>
-
-        <div class="col-xs-10 col-xs-offset-1 col-md-10 margin">
-            
-            <h4 class="centered-text comment-dashboard-title-2">Commentaires publiés</h4>
-
-        </div>
-
-        <?php foreach($alarmComments2 as $alarmComment2): ?>
-
-            <div class="col-xs-10 col-xs-offset-1 col-md-10 comment-dashboard">
-
-                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst($alarmComment2->getPseudo()) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= $alarmComment2->getEmail() ?></a> le 
-
-                <?php
-
-                $sql_Date_2 = $alarmComment2->getCommentDate();
-
-                $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
-
-                echo str_replace($month_1,$month_2,$new_Date_Format_2);
-
-                ?>
-
-                &#8239;: </p>
-
-                <p>''&nbsp;<?= $alarmComment2->getComment() ?>&nbsp;''</p>
-
-                <form action="commentaires" method="post">
-
-                    <input type="hidden" name="act" value="<?= $alarmComment2->getId() ?>" />
-
-                    <input type="submit" name="delete" class="btn" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ?'));" />
-
-                </form>
-    
             </div>
 
         <?php endforeach; ?>
