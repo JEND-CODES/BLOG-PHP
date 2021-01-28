@@ -8,7 +8,74 @@ class RepositoryChapter extends Database
     
     // Cf. méthode FETCH https://www.php.net/manual/fr/pdostatement.fetch.php
 
+    // ON DÉTERMINE LE NOMBRE TOTAL D'ARTICLES
+    public function totalChapters()
+    {
+        $req = $this->connectDB()->prepare('SELECT COUNT(*) AS nb_chapters FROM cv_chapters');
+
+        $req->execute();
+
+        $result = $req->fetch();
+
+        $nbChapters = (int) $result['nb_chapters'];
+
+        return $nbChapters;
+
+        $req->closeCursor();
+    }
+
+    // NOMBRE TOTAL D'ARTICLES PAR USER ID (PERMET D'ACTIVER LA PAGINATION OU NON SI LE MEMBRE A ÉCRIT PLUS DE 5 ARTICLES)
+    public function countPostsByUser()
+    {
+        $currentUserId = $_SESSION['member_id'];
+        
+        $req = $this->connectDB()->prepare("SELECT COUNT(*) AS nb_chapters FROM cv_chapters WHERE userid = '".$currentUserId."'");
+
+        $req->execute();
+
+        $result = $req->fetch();
+
+        $nbPosts = (int) $result['nb_chapters'];
+
+        return $nbPosts;
+
+        $req->closeCursor();
+    }
+ 
+    // PAGINATION DES ARTICLES (POUR PAGE DERNIERS POSTS)
+    function paginateChapters($limit){
+        
+        $chapters_lists = [];
+
+        $req = $this->connectDB()->prepare(
+            'SELECT *,
+            date AS chapterDate, 
+            refreshdate 
+            FROM cv_chapters 
+            ORDER BY id 
+            DESC 
+            LIMIT :limit,5'
+        );
+
+        // bindParam() - Lie un paramètre à un nom de variable spécifique
+        // PDO::PARAM_INT - Représente le type de données INTEGER SQL
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+        $req->execute();
+
+        while($data = $req->fetch())
+        {
+            $chapters_lists[] = new Chapter($data);
+        }
+
+        return $chapters_lists;
+
+        $req->closeCursor(); 
+            
+    }
+
     // RÉCUPÉRATION DES DIX DERNIERS ARTICLES (POUR PAGE DERNIERS POSTS)
+    /*
     public function selectChaptersDesc()
     {  
         $chapters1 = array();
@@ -33,8 +100,45 @@ class RepositoryChapter extends Database
         
         $req->closeCursor();
     }
+    */
 
-    // FILTRAGE DE POSTS PAR ID DE L'AUTEUR (EN BACK OFFICE)
+    // FILTRAGE DE POSTS PAR ID DE L'AUTEUR (EN BACK OFFICE) AVEC PAGINATION
+    function selectPostsByUserId($limit){
+        
+        $postsAuthor = [];
+
+        // Filtrage en fonction de l'ID Membre stocké dans la SESSION en cours
+        $currentUserId = $_SESSION['member_id'];
+
+        $req = $this->connectDB()->prepare(
+            "SELECT *,
+            date AS chapterDate, 
+            refreshdate 
+            FROM cv_chapters
+            WHERE userid = '".$currentUserId."' 
+            ORDER BY id 
+            DESC 
+            LIMIT :limit,5"
+        );
+
+        // bindParam() - Lie un paramètre à un nom de variable spécifique
+        // PDO::PARAM_INT - Représente le type de données INTEGER SQL
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+        $req->execute();
+
+        while($data = $req->fetch())
+        {
+            $postsAuthor[] = new Chapter($data);
+        }
+
+        return $postsAuthor;
+
+        $req->closeCursor(); 
+            
+    }
+
+    /*
     public function selectPostsByUserId()
     {  
         $postsAuthor = array();
@@ -63,8 +167,43 @@ class RepositoryChapter extends Database
 
         $req->closeCursor();
     }
+    */
 
+    // LISTE DE TOUS LES POSTS (SANS FILTRAGE MEMBRE) EN BACK OFFICE POUR L'ADMINISTRATEUR AVEC PAGINATION
+    function selectAllPosts($limit){
+        
+        $postsAuthor = [];
+
+        $req = $this->connectDB()->prepare(
+            'SELECT *,
+            date AS chapterDate, 
+            refreshdate 
+            FROM cv_chapters 
+            ORDER BY id 
+            DESC 
+            LIMIT :limit,5'
+        );
+
+        // bindParam() - Lie un paramètre à un nom de variable spécifique
+        // PDO::PARAM_INT - Représente le type de données INTEGER SQL
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+        $req->execute();
+
+        while($data = $req->fetch())
+        {
+            $postsAuthor[] = new Chapter($data);
+        }
+
+        return $postsAuthor;
+
+        $req->closeCursor(); 
+            
+    }
+    
+    
     // LISTE DE TOUS LES POSTS (SANS FILTRAGE) EN BACK OFFICE POUR L'ADMINISTRATEUR
+    /*
     public function selectAllPosts()
     {  
         $postsAuthor = array();
@@ -89,6 +228,7 @@ class RepositoryChapter extends Database
 
         $req->closeCursor();
     }
+    */
     
     // RÉCUPÉRATION D'UN ARTICLE SPÉCIFIQUE POUR MODIFICATIONS EN BACK OFFICE
     public function selectChapter($id)

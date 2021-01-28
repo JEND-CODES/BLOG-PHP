@@ -79,6 +79,7 @@ class RepositoryComment extends Database
     }
     
     // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT À CONDITION QU'ILS SOIENT DÉJÀ AUTORISÉS POUR LA PUBLICATION
+    /*
     public function selectAlarmCommentsDesc()
     {
         $alarmComments2 = [];
@@ -99,11 +100,56 @@ class RepositoryComment extends Database
         return $alarmComments2;
         $req->closeCursor();        
     }
+    */
+
+    // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT À CONDITION QU'ILS SOIENT DÉJÀ AUTORISÉS POUR LA PUBLICATION (AFFICHAGE AVEC PAGINATION)
+    function selectAlarmCommentsDesc($limit){
+        
+        $alarmComments2 = [];
+
+        $req = $this->connectDB()->prepare(
+            'SELECT *, 
+            date AS commentDate 
+            FROM cv_comments 
+            WHERE alarm > 0 
+            ORDER BY id 
+            DESC
+            LIMIT :limit, 3'
+        );
+
+        // $req->bindParam(':offset',$offset, PDO::PARAM_INT);
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+        $req->execute();
+
+        while($data = $req->fetch())
+        {
+            $alarmComments2[] = new Comment($data);
+        }
+
+        return $alarmComments2;
+
+        $req->closeCursor(); 
+            
+    }
+
+    // NOMBRE TOTAL DE COMMENTAIRES VALIDÉS PAR L'ADMINISTRATEUR
+    public function checkedComments()
+    {
+        $req = $this->connectDB()->prepare('SELECT COUNT(*) AS nb_comments FROM cv_comments WHERE alarm > 0');
+
+        $req->execute();
+
+        $result = $req->fetch();
+
+        $nbComments = (int) $result['nb_comments'];
+
+        return $nbComments;
+
+        $req->closeCursor();
+    }
     
-
-    // Tuto Pagination Php : https://nouvelle-techno.fr/actualites/mettre-en-place-une-pagination-en-php
-
-    // TENTATIVE DE PAGINATION -> ON DÉTERMINE LE NOMBRE TOTAL DE COMMENTAIRES
+    // NOMBRE TOTAL DE COMMENTAIRES (UTILISÉ DANS LE PROCESS DE PAGINATION)
     public function totalComments()
     {
         $req = $this->connectDB()->prepare('SELECT COUNT(*) AS nb_comments FROM cv_comments');
@@ -119,22 +165,22 @@ class RepositoryComment extends Database
         $req->closeCursor();
     }
 
-    // NOUVELLE TENTATIVE DE PAGINATION (25 janvier)
-    // function getbillets($offset, $limit){
+    // PAGINATION DES COMMENTAIRES EN BACK OFFICE (TEST PAGE ABC.PHP)
+    // On pagine ici sans besoin d'utiliser l'offset
+    // function pagination($offset, $limit) {
     function pagination($limit){
         
         $comment_lists = [];
 
-        // Apparemment on peut se passer de ces deux lignes..
+        // Apparemment on peut se passer de ces deux premières lignes de déclarations de variables -> Puisque les variables sont passées en paramètres et qu'on effectue un bindParam()
         // $offset = (int)$offset;
         // $limit = (int)$limit;
          
-        // $req = $bdd->prepare('SELECT * FROM cv_comments LIMIT :offset,:limit');
+        // $req = $this->connectDB()->prepare('SELECT * FROM cv_comments LIMIT :offset,:limit');
 
         $req = $this->connectDB()->prepare('SELECT * FROM cv_comments LIMIT :limit, 5');
 
         // $req->bindParam(':offset',$offset, PDO::PARAM_INT);
-
         $req->bindParam(':limit', $limit, PDO::PARAM_INT);
 
         $req->execute();
@@ -149,6 +195,7 @@ class RepositoryComment extends Database
         $req->closeCursor(); 
             
     }
+    
 
 
 
