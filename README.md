@@ -12,10 +12,10 @@
 - Nettoyage de codes-tests inutiles
 
 ## INSTRUCTIONS D'INSTALLATION
-* Clonez le projet Github (git clone)
-* Installez les dépendances avec Composer (composer init + composer install)
-* Importez le fichier de démonstration .sql dans votre base de données
-* Définissez la connexion à votre base de données dans le fichier Database.php
-* Indiquez votre email dans le fichier contact_me.php
-* Lancez votre serveur local pour visualiser le blog
-* Accédez au Back office avec l'identifiant ???? et le mot de passe ????
+* CLONEZ LE PROJET GITHUB (GIT CLONE)
+* INSTALLEZ LES DÉPENDANCES AVEC COMPOSER (COMPOSER INIT + COMPOSER INSTALL)
+* IMPORTEZ LE FICHIER DE DÉMONSTRATION .SQL DANS VOTRE BASE DE DONNÉES
+* DÉFINISSEZ LA CONNEXION À VOTRE BASE DE DONNÉES DANS LE FICHIER DATABASE.PHP
+* INDIQUEZ VOTRE EMAIL DANS LE FICHIER CONTACT_ME.PHP
+* LANCEZ VOTRE SERVEUR LOCAL POUR VISUALISER LE BLOG
+* ACCÉDEZ AU BACK OFFICE AVEC L'IDENTIFIANT ???? ET LE MOT DE PASSE ????
