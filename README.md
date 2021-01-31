@@ -16,3 +16,10 @@
 
 * LANCEZ VOTRE SERVEUR LOCAL POUR VISUALISER LE BLOG
 ```
+
+## Avancées
+- Mise à jour de la pagination avec $_GET et répercussion consécutives dans les Controllers et les Views
+- Refactorisation, nommage en anglais des Controllers et des Views
+- Test Codacy du projet et badge provisoire
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/526fdc70ae264a678162052c381bca4b)](https://www.codacy.com/gh/JEND-CODES/BLOG-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEND-CODES/BLOG-PHP&amp;utm_campaign=Badge_Grade)
