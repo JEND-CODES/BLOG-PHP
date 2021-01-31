@@ -2,7 +2,7 @@
 
 // ACCÈS AU BACK OFFICE
 
-class ControllerBackmember
+class ControllerBackMember
 {
     private $member_connect;
  
@@ -32,6 +32,7 @@ class ControllerBackmember
             // Renvoi du nombre total d'articles
             $count_chapters = $this->filter_chapters->totalChapters();
 
+            /*
             // Gestion de la pagination pour l'administrateur
             if(empty($_POST['next_page']))
             {   
@@ -52,6 +53,25 @@ class ControllerBackmember
 
                 }
             }
+            */
+
+            // Gestion de la pagination pour l'administrateur
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+
+                $limit = (int) strip_tags($_GET['page']);
+    
+                $new_limit = $limit * 5;
+    
+                $postsAuthors = $this->filter_chapters->selectAllPosts($new_limit); 
+        
+            }else{
+    
+                $new_limit = 0;
+    
+                $limit = 0;
+    
+                $postsAuthors = $this->filter_chapters->selectAllPosts($limit);
+            }
 
         } else 
         {
@@ -59,6 +79,7 @@ class ControllerBackmember
             // Renvoi du nombre total d'articles publiés par un membre
             $count_chapters = $this->filter_chapters->countPostsByUser();
 
+            /*
             // Gestion de la pagination pour un membre
             if(empty($_POST['next_page']))
             {   
@@ -79,6 +100,25 @@ class ControllerBackmember
 
                 }
             }
+            */
+
+            // Gestion de la pagination pour un membre
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+
+                $limit = (int) strip_tags($_GET['page']);
+    
+                $new_limit = $limit * 5;
+    
+                $postsAuthors = $this->filter_chapters->selectPostsByUserId($new_limit); 
+        
+            }else{
+    
+                $new_limit = 0;
+    
+                $limit = 0;
+    
+                $postsAuthors = $this->filter_chapters->selectPostsByUserId($limit);
+            }
 
         }
 
@@ -91,7 +131,7 @@ class ControllerBackmember
             $supprime = 'Article supprimé';     
         }
 
-        require_once('views/viewBackmember.php');
+        require_once('views/viewBackMember.php');
 
     }
 }

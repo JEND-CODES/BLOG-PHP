@@ -23,7 +23,7 @@ $nav_title = "DERNIERS POSTS";
 
                         <div class="col-md-6">
 
-                            <a href="chapitre&amp;id=<?= $chapter->getId() ?>">    
+                            <a href="chapter&amp;id=<?= $chapter->getId() ?>">    
                                 <img src="<?= $chapter->getZerolink() ?>" class="img-responsive featured-img" alt="<?= $chapter->getTitle() ?>" title="<?= $chapter->getTitle() ?>">
                             </a>
 
@@ -31,7 +31,7 @@ $nav_title = "DERNIERS POSTS";
                         
                         <div class="col-md-6">
                             
-                            <a href="chapitre&amp;id=<?= $chapter->getId() ?>">
+                            <a href="chapter&amp;id=<?= $chapter->getId() ?>">
 
                                 <h3><?= $chapter->getTitle() ?></h3>
 
@@ -102,11 +102,7 @@ $nav_title = "DERNIERS POSTS";
 
     foreach(range(0, $numberBtn) as $item): ?>
 
-        <form class="pagination-form" action="posts?page=<?= $item ?>" method="post">
-
-            <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
-
-        </form>
+        <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./posts?page=<?= $item ?>"><?= $item ?></a>
 
     <?php endforeach; ?>
 

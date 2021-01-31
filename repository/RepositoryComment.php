@@ -165,7 +165,7 @@ class RepositoryComment extends Database
         $req->closeCursor();
     }
 
-    // PAGINATION DES COMMENTAIRES EN BACK OFFICE (TEST PAGE ABC.PHP)
+    // PAGINATION DES COMMENTAIRES (TEST PAGE ABC.PHP)
     // On pagine ici sans besoin d'utiliser l'offset
     // function pagination($offset, $limit) {
     function pagination($limit){
@@ -195,6 +195,29 @@ class RepositoryComment extends Database
         $req->closeCursor(); 
             
     }
+
+    // PAGINATION AVEC OFFSET DES COMMENTAIRES (TEST PAGE ABC.PHP)
+    function paginationOffset($limit, $offset) {
+        
+            $comment_lists = [];
+    
+            $req = $this->connectDB()->prepare('SELECT * FROM cv_comments LIMIT :limit, :offset');
+    
+            $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $req->bindParam(':offset',$offset, PDO::PARAM_INT);
+    
+            $req->execute();
+    
+            while($data = $req->fetch())
+            {
+                $comment_lists[] = new Comment($data);
+            }
+    
+            return $comment_lists;
+    
+            $req->closeCursor(); 
+                
+        }
     
 
 

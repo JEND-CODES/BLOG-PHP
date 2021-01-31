@@ -18,7 +18,7 @@
 ```
 
 ## Avancées
-- Mise à jour de la pagination avec $_GET et répercussion consécutives dans les Controllers et les Views
+- Mise à jour de la pagination avec $_GET et répercussions consécutives dans les Controllers et les Views
 - Refactorisation, nommage en anglais des Controllers et des Views
 - Test Codacy du projet et badge provisoire
 

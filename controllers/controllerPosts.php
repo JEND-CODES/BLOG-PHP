@@ -19,7 +19,7 @@ class ControllerPosts
         session_start();
 
         $count_chapters = $this->posts->totalChapters();
-
+/*
         if(empty($_POST['next_page']))
         {   
 
@@ -38,6 +38,24 @@ class ControllerPosts
                 $chapters = $this->posts->paginateChapters($new_limit); 
 
             }
+        }
+*/
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+
+            $limit = (int) strip_tags($_GET['page']);
+
+            $new_limit = $limit * 5;
+
+            $chapters = $this->posts->paginateChapters($new_limit); 
+    
+        } else
+        {
+
+            $new_limit = 0;
+
+            $limit = 0;
+
+            $chapters = $this->posts->paginateChapters($limit);
         }
         
         // $chapters = $this->posts->selectChaptersDesc();

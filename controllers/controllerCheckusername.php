@@ -2,7 +2,7 @@
 
 // ENREGISTREMENTS DE NOUVEAUX MEMBRES
 
-class ControllerCheckusername
+class ControllerCheckUserName
 {
     private $new_user;
     
@@ -88,7 +88,7 @@ class ControllerCheckusername
             }
         }
 
-        require_once('views/viewCheckusername.php');
+        require_once('views/viewCheckUserName.php');
 
     }
 }

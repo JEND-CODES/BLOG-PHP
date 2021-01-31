@@ -1,6 +1,6 @@
 <?php
 
-// Test de pagination
+// TEST DE PAGINATION
 
 class ControllerAbc
 {
@@ -21,7 +21,7 @@ class ControllerAbc
         $count_comments = $this->paginate->totalComments();
 
 
-// Les variables PHP $_GET et $_POST sont utilisées pour collectées les données postées par les formulaires. $_GET et $_POST sont des tableaux associatifs contenant des paires clé/valeur où les clés sont les noms des contrôles de formulaires (name="...") et les valeurs sont les données d'entrée de l'utilisateur.
+        // Les variables PHP $_GET et $_POST sont utilisées pour collectées les données postées par les formulaires. $_GET et $_POST sont des tableaux associatifs contenant des paires clé/valeur où les clés sont les noms des contrôles de formulaires (name="...") et les valeurs sont les données d'entrée de l'utilisateur.
 
 
         // https://www.youtube.com/watch?v=8WoxPWVxXHI
@@ -34,14 +34,67 @@ class ControllerAbc
             }
         } else {
             $page = 1;
-        }
+        */
 
-         if (isset($_GET['page'])) {
-            $new_limit = (int) $_GET['page'];   
-        } else {
-            $new_limit = 2;
+        
+        // Attention à bien paramétrer le HTACCESS avec la mention [L,QSA] pour prendre en compte les modifications $_GET !!!
+        // RewriteRule ^(.*)$ index.php?action=$1 [L,QSA]
+
+        // PAGINATION RÉVISÉE EN $_GET (31 JANVIER)
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+
+            // Je récupère le numéro en cours $_GET['page']
+            $limit = (int) strip_tags($_GET['page']);
+
+            $new_limit = $limit * 5;
+
+            $comment_lists = $this->paginate->pagination($new_limit); 
+    
+        }else{
+
+            $new_limit = 0;
+
+            $limit = 0;
+
+            $comment_lists = $this->paginate->pagination($limit);
+        }
+        
+
+
+        // VERSION AVEC LE CONTRÔLE DE L'OFFSET DANS L'URL (DÉCALAGE, NOMBRE D'ARTICLE PAR PAGE)
+        // ex : /blog/abc?page=1&by_page=3
+        /*
+        if(isset($_GET['page']) && !empty($_GET['page'] && isset($_GET['by_page']) && !empty($_GET['by_page']))){
+
+            // Je récupère le numéro en cours $_GET['page']
+            $limit = (int) strip_tags($_GET['page']);
+
+            // Cela définit le nombre de messages que l'on souhaite voir sur une page
+            $offset = (int) strip_tags($_GET['by_page']);
+
+            // Cela définit le point de départ à partir duquel les messages vont être sélectionnés en BDD
+            $new_limit = $limit * 5;
+
+            $comment_lists = $this->paginate->paginationOffset($new_limit, $offset); 
+    
+        }else{
+
+            $new_limit = 0;
+
+            $limit = 0;
+
+            $offset = 5;
+
+            $comment_lists = $this->paginate->paginationOffset($limit, $offset);
         }
         */
+        
+
+
+
+
+
+
 
         //$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 /*
@@ -54,8 +107,12 @@ class ControllerAbc
         // $new_limit = $_GET['page'];
 
 
-// Question : utiliser $_POST pour une pagination ? ou $_GET ? https://stackoverflow.com/questions/26446552/php-pagination-post-or-get
 
+
+
+
+// Question : utiliser $_POST pour une pagination ? ou $_GET ? https://stackoverflow.com/questions/26446552/php-pagination-post-or-get
+/*
         if(empty($_POST['next_page']))
         {
             //extract($_POST);    
@@ -64,7 +121,7 @@ class ControllerAbc
 
             $comment_lists = $this->paginate->pagination($limit);     
         }
-        
+        */
         /*
         if(!empty($_POST['next_page']))
         {
@@ -95,6 +152,9 @@ class ControllerAbc
         }
 */
 
+
+
+
         /*
         foreach ($_POST as $name => $value) {
             echo $name; // email, for example
@@ -116,9 +176,11 @@ class ControllerAbc
         }
         */
         
+
+        
         // for ($i=0; $i < $count_comments; $i++)
         // echo $_POST['item_number'.$i]."<br />";
-
+/*
         for ($i = 0; $i < $count_comments; $i++) {
 
             if(!empty($_POST['next_page_'.$i]))
@@ -131,7 +193,7 @@ class ControllerAbc
             }
 
         }
-        
+        */
         
 
       
@@ -158,7 +220,7 @@ class ControllerAbc
         */
         
 
-        require_once('views/viewAbc.php');
+        require_once('views/Abc.php');
             
     }
 }

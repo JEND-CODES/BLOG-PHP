@@ -31,7 +31,7 @@ $nav_title = "BACK OFFICE";
 
                     <a class="btn dropdown-item special-nav" href="manage">Gestion Membres</a>
 
-                    <a class="btn dropdown-item special-nav" href="commentaires">Commentaires</a>
+                    <a class="btn dropdown-item special-nav" href="comments">Commentaires</a>
 
                     <a class="btn dropdown-item special-nav" href="password">Mot de passe</a>
 
@@ -126,7 +126,7 @@ $nav_title = "BACK OFFICE";
 
                     <div class="col-md-3">
                         
-                        <a class="btn btn-info btn-block special-button" href="chapitre&amp;id=<?= $postsAuthor->getId() ?>"> Lire&nbsp;<i class="fas fa-eye"></i></a>
+                        <a class="btn btn-info btn-block special-button" href="chapter&amp;id=<?= $postsAuthor->getId() ?>"> Lire&nbsp;<i class="fas fa-eye"></i></a>
 
                         <a class="btn btn-success btn-block special-button" href="changepost&amp;id=<?= $postsAuthor->getId() ?>"> Modifier&nbsp; <i class="fas fa-feather-alt"></i></a>
 
@@ -165,11 +165,7 @@ $nav_title = "BACK OFFICE";
 
     foreach(range(0, $numberBtn) as $item): ?>
 
-        <form class="pagination-form" action="backmember?page=<?= $item ?>" method="post">
-
-            <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
-
-        </form>
+        <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./backmember?page=<?= $item ?>"><?= $item ?></a>
 
     <?php endforeach; ?>
 

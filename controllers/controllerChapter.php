@@ -2,7 +2,7 @@
 
 // AFFICHAGE DE CHAQUE ARTICLE ET DES COMMENTAIRES ASSOCIÉS
 
-class ControllerChapitre
+class ControllerChapter
 {
     private $show_post;
 
@@ -109,7 +109,7 @@ class ControllerChapitre
 
         }
 
-        require_once('views/viewChapitre.php');
+        require_once('views/viewChapter.php');
          
     }
     

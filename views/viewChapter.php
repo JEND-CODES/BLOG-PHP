@@ -99,7 +99,7 @@ require_once('content/dates.php'); ?>
                     <?php 
                     if($prevChapter): ?>
 
-                    <a href="chapitre&amp;id=<?= $prevChapter->getId() ?>" class="btn">
+                    <a href="chapter&amp;id=<?= $prevChapter->getId() ?>" class="btn">
                         <p><i class="fas fa-chevron-left"></i>&nbsp;Précédent</p>
                     </a>
 
@@ -108,7 +108,7 @@ require_once('content/dates.php'); ?>
                     <?php
                     if($nextChapter): ?>
 
-                    <a href="chapitre&amp;id=<?= $nextChapter->getId() ?>" class="btn">
+                    <a href="chapter&amp;id=<?= $nextChapter->getId() ?>" class="btn">
                         <p>Suivant&nbsp;<i class="fas fa-chevron-right"></i></p>
                     </a>
 

@@ -62,7 +62,7 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 <p>''&nbsp;<?= $alarmComment2->getComment() ?>&nbsp;''</p>
 
-                <form action="commentaires" method="post">
+                <form action="comments" method="post">
 
                     <input type="hidden" name="act" value="<?= $alarmComment2->getId() ?>" />
 
@@ -89,11 +89,7 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
             foreach(range(0, $numberBtn) as $item): ?>
 
-                <form class="pagination-form" action="commentaires?page=<?= $item ?>" method="post">
-
-                    <input class="btn btn-info special_btn_nbr_<?= $item ?>" type="submit" name="next_page_<?= $item ?>" value="<?= $item ?>" />
-
-                </form>
+                <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./comments?page=<?= $item ?>"><?= $item ?></a>
 
             <?php endforeach; ?>
 
@@ -126,7 +122,7 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 <p>''&nbsp;<?= $alarmComment->getComment() ?>&nbsp;''</p>
 
-                <form action="commentaires" method="post">
+                <form action="comments" method="post">
 
                     <input type="hidden" name="act" value="<?= $alarmComment->getId() ?>" />
 

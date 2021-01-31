@@ -2,7 +2,7 @@
 
 // GESTION DES COMMENTAIRES EN BACK OFFICE
 
-class ControllerCommentaires
+class ControllerComments
 {
     private $back_comment;
     
@@ -25,6 +25,7 @@ class ControllerCommentaires
         // Affichage des commentaires en attente de validation
         $alarmComments = $this->back_comment->selectAlarmComments();
         
+        /*
         // Affichage des commentaires déjà validés (avec pagination, 5 par page)
         if(empty($_POST['next_page']))
         {
@@ -47,6 +48,26 @@ class ControllerCommentaires
             }
 
         }
+        */
+
+        // Affichage des commentaires déjà validés (avec pagination, 5 par page)
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+
+            $limit = (int) strip_tags($_GET['page']);
+
+            $new_limit = $limit * 3;
+
+            $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($new_limit); 
+    
+        }else{
+
+            $new_limit = 0;
+
+            $limit = 0;
+
+            $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($limit);
+        }
+
 
         if(!empty($_POST['delete']))
         {
@@ -66,7 +87,7 @@ class ControllerCommentaires
                 $freely = 'Commentaire autorisé';     
             }
 
-        require_once('views/viewCommentaires.php');
+        require_once('views/viewComments.php');
       
     }
 
