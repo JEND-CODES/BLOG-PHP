@@ -10,7 +10,7 @@ $nav_title = "MODIFICATION DU MOT DE PASSE";
     <div class="medium-spacer"></div>
     <div class="medium-spacer"></div>
 
-    <a href="backmember" class="btn return-back-two"><i class="fas fa-arrow-left"></i></a>
+    <a href="backoff" class="btn return-back-two"><i class="fas fa-arrow-left"></i></a>
 
     <div class="container-fluid">
 

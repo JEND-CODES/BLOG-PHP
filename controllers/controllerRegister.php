@@ -2,7 +2,7 @@
 
 // ENREGISTREMENTS DE NOUVEAUX MEMBRES
 
-class ControllerCheckUserName
+class ControllerRegister
 {
     private $new_user;
     
@@ -18,7 +18,7 @@ class ControllerCheckUserName
         session_start();
 
         if(!empty($_SESSION['premium']))
-            header('Location:'.URL.'backmember');
+            header('Location:'.URL.'backoff');
 
         $user = '';
 
@@ -37,7 +37,7 @@ class ControllerCheckUserName
             
             $gotoregister = '<p>PSEUDO DISPONIBLE</p>';
 
-            $registerForm = '<form action="checkusername" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 special-form-registration">
+            $registerForm = '<form action="register" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 special-form-registration">
             <p>
               <label class="sr-only">Identifiant</label>
               <input id="input_checked" name="user" placeholder="Pseudo membre" class="form-control" type="text" readonly>
@@ -88,7 +88,7 @@ class ControllerCheckUserName
             }
         }
 
-        require_once('views/viewCheckUserName.php');
+        require_once('views/viewRegister.php');
 
     }
 }

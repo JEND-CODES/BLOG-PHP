@@ -60,7 +60,7 @@ class RepositoryConnect extends Database
         {
             $data = $req->fetch();
             // PDOStatement::fetch = Récupère une ligne depuis un jeu de résultats
-            // cf.Database.php -> PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
+            // cf. Database.php -> PDO::FETCH_ASSOC: retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
             return new Connect($data);   
         }
         $req->closeCursor();        

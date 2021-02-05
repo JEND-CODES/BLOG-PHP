@@ -2,7 +2,7 @@
 
 // EDITION D'UN NOUVEL ARTICLE EN BACK OFFICE
 
-class ControllerNewPost
+class ControllerNew
 {
     private $new_chapter;
     
@@ -64,7 +64,7 @@ class ControllerNewPost
             }
         }
 
-        require_once('views/viewNewPost.php');
+        require_once('views/viewNew.php');
 
     }
 }

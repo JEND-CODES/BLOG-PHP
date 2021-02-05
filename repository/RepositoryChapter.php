@@ -74,34 +74,6 @@ class RepositoryChapter extends Database
             
     }
 
-    // RÉCUPÉRATION DES DIX DERNIERS ARTICLES (POUR PAGE DERNIERS POSTS)
-    /*
-    public function selectChaptersDesc()
-    {  
-        $chapters1 = array();
-        
-        $req = $this->connectDB()->query(
-            'SELECT *,
-            date AS chapterDate, 
-            refreshdate 
-            FROM cv_chapters 
-            ORDER BY id 
-            DESC 
-            LIMIT 0,10'
-        );
-        
-        $req->execute();
-        while($data = $req->fetch())
-        {
-            $chapters1[] = new Chapter($data);
-        }
-
-        return $chapters1;
-        
-        $req->closeCursor();
-    }
-    */
-
     // FILTRAGE DE POSTS PAR ID DE L'AUTEUR (EN BACK OFFICE) AVEC PAGINATION
     function selectPostsByUserId($limit){
         
@@ -138,37 +110,6 @@ class RepositoryChapter extends Database
             
     }
 
-    /*
-    public function selectPostsByUserId()
-    {  
-        $postsAuthor = array();
-
-        // Filtrage en fonction de l'ID Membre stocké dans la SESSION en cours
-        $currentUserId = $_SESSION['member_id'];
-    
-        $req = $this->connectDB()->query(
-            "SELECT *, 
-            date AS chapterDate, 
-            refreshdate
-            FROM cv_chapters       
-            WHERE userid = '".$currentUserId."' 
-            ORDER BY id 
-            DESC"
-        );
-
-        $req->execute();
-
-        while($data = $req->fetch())
-        {
-            $postsAuthor[] = new Chapter($data);
-        }
-        
-        return $postsAuthor;
-
-        $req->closeCursor();
-    }
-    */
-
     // LISTE DE TOUS LES POSTS (SANS FILTRAGE MEMBRE) EN BACK OFFICE POUR L'ADMINISTRATEUR AVEC PAGINATION
     function selectAllPosts($limit){
         
@@ -200,35 +141,6 @@ class RepositoryChapter extends Database
         $req->closeCursor(); 
             
     }
-    
-    
-    // LISTE DE TOUS LES POSTS (SANS FILTRAGE) EN BACK OFFICE POUR L'ADMINISTRATEUR
-    /*
-    public function selectAllPosts()
-    {  
-        $postsAuthor = array();
-
-        $req = $this->connectDB()->query(
-            "SELECT *, 
-            date AS chapterDate, 
-            refreshdate
-            FROM cv_chapters 
-            ORDER BY id 
-            DESC"
-        );
-
-        $req->execute();
-
-        while($data = $req->fetch())
-        {
-            $postsAuthor[] = new Chapter($data);
-        }
-        
-        return $postsAuthor;
-
-        $req->closeCursor();
-    }
-    */
     
     // RÉCUPÉRATION D'UN ARTICLE SPÉCIFIQUE POUR MODIFICATIONS EN BACK OFFICE
     public function selectChapter($id)

@@ -10,7 +10,7 @@ $nav_title = "GESTION DES COMMENTAIRES";
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
 
-<a href="backmember" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
+<a href="backoff" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
 
 <div class="container">
 

@@ -50,7 +50,7 @@
 
                     <?php if (empty($_SESSION["premium"])) { ?>
 
-                    <li><a href="<?= URL.'checkusername' ?>">Inscription</a></li>
+                    <li><a href="<?= URL.'register' ?>">Inscription</a></li>
 
                     <li><a href="<?= URL.'access' ?>">Connexion</a></li>
 
@@ -58,9 +58,9 @@
                     } else {
                     ?>
 
-                    <li><a href="<?= URL.'backmember' ?>">Back Office</a></li>
+                    <li><a href="<?= URL.'backoff' ?>">Back Office</a></li>
 
-                    <li><a href="<?= URL.'nosession' ?>">Déconnexion</a></li>
+                    <li><a href="<?= URL.'logout' ?>">Déconnexion</a></li>
                         
                     <?php } ?>
 

@@ -8,13 +8,13 @@ $nav_title = "NOUVEL ARTICLE";
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
 
-<a href="backmember" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
+<a href="backoff" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
 
 <div class="container">
 
     <div class="row">
 
-        <form action="newpost" method="post" class="col-md-10 col-md-offset-1">
+        <form action="new" method="post" class="col-md-10 col-md-offset-1">
 
             <?php 
                 

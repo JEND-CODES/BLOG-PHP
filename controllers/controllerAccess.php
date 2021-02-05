@@ -20,7 +20,7 @@ class ControllerAccess
         // Si la session est en cours pour un membre
         if(!empty($_SESSION['premium']))
             // Go to Back office Membres
-            header('Location:'.URL.'backmember');
+            header('Location:'.URL.'backoff');
 
         if(!empty($_POST))
         {
@@ -61,7 +61,7 @@ class ControllerAccess
                     $_SESSION['member_id'] = $return;
                     
                     // L'accès au Back Office est dédié uniquement aux membres premium
-                    header('Location:'.URL.'backmember');
+                    header('Location:'.URL.'backoff');
                     
                 }
             }

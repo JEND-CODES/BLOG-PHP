@@ -77,30 +77,6 @@ class RepositoryComment extends Database
         return $alarmComments;
         $req->closeCursor();        
     }
-    
-    // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT À CONDITION QU'ILS SOIENT DÉJÀ AUTORISÉS POUR LA PUBLICATION
-    /*
-    public function selectAlarmCommentsDesc()
-    {
-        $alarmComments2 = [];
-        
-        $req = $this->connectDB()->prepare(
-            'SELECT *, 
-            date AS commentDate 
-            FROM cv_comments 
-            WHERE alarm > 0 
-            ORDER BY id 
-            DESC'
-        );
-        $req->execute(); 
-        while($data = $req->fetch())
-        {
-            $alarmComments2[] = new Comment($data);
-        }
-        return $alarmComments2;
-        $req->closeCursor();        
-    }
-    */
 
     // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT À CONDITION QU'ILS SOIENT DÉJÀ AUTORISÉS POUR LA PUBLICATION (AFFICHAGE AVEC PAGINATION)
     function selectAlarmCommentsDesc($limit){
@@ -219,9 +195,6 @@ class RepositoryComment extends Database
                 
         }
     
-
-
-
 
 
 }

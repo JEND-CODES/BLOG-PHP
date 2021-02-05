@@ -25,7 +25,7 @@ $nav_title = "BACK OFFICE";
 
                     <p class="btn menu-info">Bienvenue <?= ucfirst($_SESSION['premium']) ?></p>
 
-                    <a class="btn dropdown-item special-nav" href="newpost">Nouveau post</a>
+                    <a class="btn dropdown-item special-nav" href="new">Nouveau post</a>
 
                     <?php if ($_SESSION["member_id"] == 1): ?>
 
@@ -37,7 +37,7 @@ $nav_title = "BACK OFFICE";
 
                     <?php endif; ?>
 
-                    <a class="btn dropdown-item special-nav" href="nosession">Déconnexion</a>
+                    <a class="btn dropdown-item special-nav" href="logout">Déconnexion</a>
 
                 </div>
 
@@ -128,9 +128,9 @@ $nav_title = "BACK OFFICE";
                         
                         <a class="btn btn-info btn-block special-button" href="chapter&amp;id=<?= $postsAuthor->getId() ?>"> Lire&nbsp;<i class="fas fa-eye"></i></a>
 
-                        <a class="btn btn-success btn-block special-button" href="changepost&amp;id=<?= $postsAuthor->getId() ?>"> Modifier&nbsp; <i class="fas fa-feather-alt"></i></a>
+                        <a class="btn btn-success btn-block special-button" href="change&amp;id=<?= $postsAuthor->getId() ?>"> Modifier&nbsp; <i class="fas fa-feather-alt"></i></a>
 
-                        <form action="backmember" method="post">
+                        <form action="backoff" method="post">
 
                             <input type="hidden" name="edit" value="<?= $postsAuthor->getId() ?>" />
 
@@ -165,7 +165,7 @@ $nav_title = "BACK OFFICE";
 
     foreach(range(0, $numberBtn) as $item): ?>
 
-        <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./backmember?page=<?= $item ?>"><?= $item ?></a>
+        <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./backoff?page=<?= $item ?>"><?= $item ?></a>
 
     <?php endforeach; ?>
 

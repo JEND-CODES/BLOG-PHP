@@ -8,13 +8,13 @@ $nav_title = "MODIFICATION D'UN ARTICLE";
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
 
-<a href="backmember" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
+<a href="backoff" class="btn return-back"><i class="fas fa-arrow-left"></i></a>
 
 <div class="container">
 
     <div class="row">
 
-        <form action="changepost&amp;id=<?= $chapter->getId() ?>" method="post" class="col-md-10 col-md-offset-1">
+        <form action="change&amp;id=<?= $chapter->getId() ?>" method="post" class="col-md-10 col-md-offset-1">
 
             <?php 
                     

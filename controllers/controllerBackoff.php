@@ -2,7 +2,7 @@
 
 // ACCÈS AU BACK OFFICE
 
-class ControllerBackMember
+class ControllerBackoff
 {
     private $member_connect;
  
@@ -131,7 +131,7 @@ class ControllerBackMember
             $supprime = 'Article supprimé';     
         }
 
-        require_once('views/viewBackMember.php');
+        require_once('views/viewBackoff.php');
 
     }
 }

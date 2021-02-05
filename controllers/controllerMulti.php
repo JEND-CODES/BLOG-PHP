@@ -2,7 +2,7 @@
 
 // TESTS DE CHARGEMENT DE PLUSIEURS VUES AVEC LE MÊME CONTROLLER EN FONCTION DE CONDITIONS
 
-class ControllerMultiViews
+class ControllerMulti
 {
    
     // https://stackoverflow.com/questions/10183874/php-mvc-adding-more-views

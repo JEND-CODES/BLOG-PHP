@@ -12,7 +12,7 @@ $nav_title = "INSCRIPTION";
 
             <div class="row vertical-center">
 
-                  <form action="checkusername" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5">
+                  <form action="register" method="post" class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5">
 
                         <!-- Vérification en BDD du pseudo sélectionné -->
                         <?php      
@@ -53,7 +53,7 @@ $nav_title = "INSCRIPTION";
 
                               <div class="check-user-box">
                                     <p class="check-user-para">PSEUDO INDISPONIBLE</p>
-                                    <a href="<?= URL.'checkusername' ?>"><i class="fas fa-times"></i></a>
+                                    <a href="<?= URL.'register' ?>"><i class="fas fa-times"></i></a>
                               </div>
                               
 

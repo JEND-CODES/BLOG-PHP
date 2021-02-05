@@ -2,7 +2,7 @@
 
 // MISE À JOUR D'UN ARTICLE EN BACK OFFICE
 
-class ControllerChangePost
+class ControllerChange
 { 
     private $post_bis;
     
@@ -74,7 +74,7 @@ class ControllerChangePost
 
         }
 
-        require_once('views/viewChangePost.php');
+        require_once('views/viewChange.php');
 
     }
 }

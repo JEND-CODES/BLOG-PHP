@@ -2,7 +2,7 @@
 
 // FIN DE SESSIONS
 
-class ControllerNoSession
+class ControllerLogout
 {
     
     public function __invoke()
