@@ -37,7 +37,8 @@ require_once('content/dates.php'); ?>
 
                     $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
-                    echo str_replace($month_1,$month_2,$new_Date_Format_1);
+                    print_r(str_replace($month_1,$month_2,$new_Date_Format_1));
+                            
 
                     ?>
 
