@@ -1,15 +1,15 @@
-$(function() {
+$(function () {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
-        submitError: function($form, event, errors) {
+        submitError: function ($form, event, errors) {
             // Messages d'erreurs
         },
-        submitSuccess: function($form, event) {
+        submitSuccess: function ($form, event) {
             // Empêcher les spams et l'envoi par défaut
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
-            
+
             // Récupération des données
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -21,7 +21,8 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "content/theme/mail/contact_me.php",
+                // url: "././mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
@@ -30,7 +31,7 @@ $(function() {
                     message: message
                 },
                 cache: false,
-                success: function() {
+                success: function () {
                     // Activaction du bouton et affichage du message de réussite
                     $("#btnSubmit").attr("disabled", false);
                     $('#success').html("<div class='alert alert-success'>");
@@ -44,7 +45,7 @@ $(function() {
                     // Effacement de tous les champs
                     $('#contactForm').trigger("reset");
                 },
-                error: function() {
+                error: function () {
                     // Message d'erreur après l'envoi
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -56,18 +57,18 @@ $(function() {
                 },
             });
         },
-        filter: function() {
+        filter: function () {
             return $(this).is(":visible");
         },
     });
 
-    $("a[data-toggle=\"tab\"]").click(function(e) {
+    $("a[data-toggle=\"tab\"]").click(function (e) {
         e.preventDefault();
         $(this).tab("show");
     });
 });
 
 // Evénement au click sur les champs d'échec ou de réussite
-$('#name').focus(function() {
+$('#name').focus(function () {
     $('#success').html('');
 });

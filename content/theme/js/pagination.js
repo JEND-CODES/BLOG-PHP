@@ -19,6 +19,6 @@ $(document).ready(function () {
             items.hide().slice(showFrom, showTo).show();
         }
     });
-    
+
 
 });
