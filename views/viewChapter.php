@@ -24,7 +24,7 @@ require_once('content/dates.php'); ?>
 
                 <div class="col-md-6">
 
-                    <h2 class="article-title"><?= $chapter->getTitle() ?></h2>
+                    <h2 class="article-title"><?= htmlentities($chapter->getTitle()) ?></h2>
 
                     <p class="post-date-info">Auteur : <?= ucfirst($chapter->getAuthor()) ?></p>
 
