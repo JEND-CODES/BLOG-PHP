@@ -33,7 +33,8 @@ class ControllerRegister
 
             $pseudo = htmlentities($pseudo);
 
-            $getUsernames = $this->new_user->checkUsername();
+            // $pseudo -> $_POST['pseudo'] -> peut être passé en paramètre ici plutôt que dans la fonction checkUsername du repositoryConnect (modification du 6 février suite à l'analyse CODACY du projet)
+            $getUsernames = $this->new_user->checkUsername($pseudo);
             
             $gotoregister = '<p>PSEUDO DISPONIBLE</p>';
 
