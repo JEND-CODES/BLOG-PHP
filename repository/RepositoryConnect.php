@@ -152,12 +152,12 @@ class RepositoryConnect extends Database
     }
 
     // VÉRIFICATION QU'UN PSEUDO DE NOUVEAU MEMBRE N'EST PAS DÉJÀ UTILISÉ
-    public function checkUsername()
+    public function checkUsername($nameselected)
     {  
         
         $managers = array();
 
-        $nameselected = $_POST['pseudo'];
+        // $nameselected = $_POST['pseudo'];
         
         $req = $this->connectDB()->query(
             "SELECT user
