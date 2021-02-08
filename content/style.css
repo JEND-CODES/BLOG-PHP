@@ -1,4 +1,10 @@
 a {
+    
     font-family: 'Lexend Deca', sans-serif !important;
     text-decoration: none !important;
+}
+
+.regular-spacer {
+    
+    height: 10px;
 }
