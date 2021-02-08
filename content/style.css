@@ -135,7 +135,6 @@ a {
 
 .page-not-found {
   width: 100% !important;
-  border: 0px solid red !important;
   text-align: center !important;
 }
 
@@ -177,7 +176,7 @@ a {
 }
 
 .portfolio-title {
-  color: #2C3E50 !important;
+  color: #2c3e50 !important;
 }
 
 .section-portfolio {
@@ -234,7 +233,7 @@ a {
 }
 
 .btn-primary {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -347,10 +346,8 @@ a {
 
 .special-menu {
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
-  /* background-color:rgb(8, 155, 155) !important; */
   text-transform: uppercase !important;
   font-size: 16px !important;
-  /* color:white !important; */
 }
 
 .dropdown-menu-bis {
@@ -363,7 +360,6 @@ a {
   margin-bottom: 6px;
   font-size: 14px !important;
   font-weight: bold !important;
-  border-radius: 0px !important;
   margin-top: -5px !important;
   background-color: white !important;
   color: grey !important;
@@ -387,7 +383,6 @@ a {
   background-color: white !important;
   color: black !important;
   text-align: center !important;
-  border: 0px solid green !important;
 }
 
 .check-user-para {
@@ -399,12 +394,10 @@ a {
 .fa-times {
   position: fixed !important;
   top: 120px !important;
-  /* right:20px !important; */
   font-size: 24px !important;
 }
 
 #input_checked {
-  /* display:none !important; */
   opacity: 0.5 !important;
 }
 
@@ -428,7 +421,6 @@ a {
 }
 
 .floating-label-form-group {
-  border-bottom: 0px solid rgb(182, 182, 182) !important;
   border-left: 1px solid rgb(182, 182, 182) !important;
   border-right: 1px solid rgb(182, 182, 182) !important;
 }
@@ -446,8 +438,6 @@ form .row:first-child .floating-label-form-group {
 }
 
 .img-special-post {
-  /* border: 4px solid #2C3E50 !important; */
-  /* padding: 2px !important; */
   margin-top: 30px !important;
   margin-bottom: 30px !important;
 }
@@ -573,8 +563,8 @@ form .row:first-child .floating-label-form-group {
 }
 
 .list-item {
-  border: 1px solid #EEE !important;
-  background: #FFF !important;
+  border: 1px solid #eee !important;
+  background: #fff !important;
   margin-bottom: 10px !important;
   padding: 10px !important;
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
@@ -602,23 +592,23 @@ form .row:first-child .floating-label-form-group {
   margin-right: 5px !important;
 }
 
-.simple-pagination li a:hover {
-  background: #5bc0de !important;
-  color: white !important;
-}
-
 .simple-pagination li a,
 .simple-pagination li span {
   color: #666 !important;
   padding: 5px 10px !important;
   text-decoration: none !important;
-  border: 1px solid #EEE !important;
-  background-color: #FFF !important;
+  border: 1px solid #eee !important;
+  background-color: #fff !important;
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175) !important;
 }
 
+.simple-pagination li a:hover {
+  background: #5bc0de !important;
+  color: white !important;
+}
+
 .simple-pagination .current {
-  color: #FFF !important;
+  color: #fff !important;
   background-color: #5bc0de !important;
   border-color: #5bc0de !important;
 }
@@ -629,89 +619,87 @@ form .row:first-child .floating-label-form-group {
 }
 
 /* Media Queries max-width: 991px */
-/* Centrage des textes pour la page gestion membres */
 @media all and (max-width: 991px) {
-    .centered-text {
-      text-align: center !important;
-    }
+  .centered-text {
+    text-align: center !important;
+  }
 
-    .img-special-post {
-        margin-top: -20px !important;
-
-    }
+  .img-special-post {
+    margin-top: -20px !important;
+  }
 }
 
 /* Media Queries max-width: 767px */
 @media all and (max-width: 767px) {
-    .navbar-header {
-        height: 60px !important;
-    }
+  .navbar-header {
+    height: 60px !important;
+  }
 
-    .special-logo {
-        font-size: 30px !important;
-        margin-top: 5px !important;
-    }
+  .special-logo {
+    font-size: 30px !important;
+    margin-top: 5px !important;
+  }
 
-    .logo-img {
-        width: 40px !important;
-        margin-top: 10px !important;
-    }
+  .logo-img {
+    width: 40px !important;
+    margin-top: 10px !important;
+  }
 
-    .portrait {
-        float: initial !important;
-        width: 90px !important;
-        margin-top: 50px !important;
-    }
+  .portrait {
+    float: initial !important;
+    width: 90px !important;
+    margin-top: 50px !important;
+  }
 
-    .linear-para {
-        text-indent: 0px !important;
-        width: 100% !important;
-        text-align: center !important;
-        border: 0px solid red !important;
-        padding-bottom: 20px !important;
-    }
+  .linear-para {
+    text-indent: 0px !important;
+    width: 100% !important;
+    text-align: center !important;
+    border: 0px solid red !important;
+    padding-bottom: 20px !important;
+  }
 
-    .hidden-break {
-        display: initial !important;
-    }
+  .hidden-break {
+    display: initial !important;
+  }
 
-    .dev-title {
-        width: 100% !important;
-        border: 0px solid red !important;
-        text-align: center !important;
-        font-size: 20px !important;
-    }
+  .dev-title {
+    width: 100% !important;
+    border: 0px solid red !important;
+    text-align: center !important;
+    font-size: 20px !important;
+  }
 
-    .special-title {
-        font-size: 20px !important;
-    }
+  .special-title {
+    font-size: 20px !important;
+  }
 
-    .article-title {
-        font-size: 26px !important;
-    }
+  .article-title {
+    font-size: 26px !important;
+  }
 
-    p {
-        font-size: 18px !important;
-    }
+  p {
+    font-size: 18px !important;
+  }
 
-    .special-hr {
-        width: 70% !important;
-    }
+  .special-hr {
+    width: 70% !important;
+  }
 
-    .para-about {
-        text-align: center !important;
-    }
+  .para-about {
+    text-align: center !important;
+  }
 
-    .para-presentation {
-        text-align: center !important;
-    }
+  .para-presentation {
+    text-align: center !important;
+  }
 
 }
 
 /* Media Queries max-width: 490px */
 @media all and (max-width: 490px) {
-    .special-hr {
-        width: 60% !important;
-    }
+  .special-hr {
+    width: 60% !important;
+  }
 
 }
