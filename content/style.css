@@ -233,7 +233,7 @@ a {
 }
 
 .btn-primary {
-  box-shadow: .1 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -244,7 +244,7 @@ a {
 }
 
 .btn-secondary {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -255,7 +255,7 @@ a {
 }
 
 .btn-success {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -267,7 +267,7 @@ a {
 }
 
 .btn-danger {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -278,7 +278,7 @@ a {
 }
 
 .btn-warning {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -289,7 +289,7 @@ a {
 }
 
 .btn-info {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -300,7 +300,7 @@ a {
 }
 
 .btn-light {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -311,7 +311,7 @@ a {
 }
 
 .btn-dark {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
