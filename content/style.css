@@ -233,7 +233,7 @@ a {
 }
 
 .btn-primary {
-  box-shadow: 0.1px 6px 12px rgba(0, 0, 0, .175) !important;
+  box-shadow: .1 6px 12px rgba(0, 0, 0, .175) !important;
   font-weight: normal !important;
 }
 
@@ -663,7 +663,6 @@ form .row:first-child .floating-label-form-group {
 
   .dev-title {
     width: 100% !important;
-    border: 0px solid red !important;
     text-align: center !important;
     font-size: 20px !important;
   }
