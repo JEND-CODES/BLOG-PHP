@@ -104,7 +104,7 @@ ul,
 var,
 video,
 wbr {
-    font-family: 'Lexend Deca', sans-serif !important;
+        font-family: 'Lexend Deca', sans-serif !important;
 }
 
 h1,
@@ -113,13 +113,13 @@ h3,
 h4,
 h5,
 h6 {
-    letter-spacing: 3px !important;
+        letter-spacing: 3px !important;
 }
 
 
 a {
-    font-family: 'Lexend Deca', sans-serif !important;
-    text-decoration: none !important;
+        font-family: 'Lexend Deca', sans-serif !important;
+        text-decoration: none !important;
 }
 
 /*
