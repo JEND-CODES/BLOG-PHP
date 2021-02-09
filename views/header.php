@@ -8,7 +8,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><?php echo isset($nav_title)?$nav_title:"BLOG PHP"; ?></title>
+    <title><?= isset($nav_title)?$nav_title:"BLOG PHP"; ?></title>
     
     <meta name="description" content="BLOG PHP">
 

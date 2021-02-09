@@ -38,7 +38,9 @@ require_once 'utils/dates.php'; ?>
 
                     $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
-                    echo str_replace($month_1,$month_2,$new_Date_Format_1);
+                    ?>
+                    <?= 
+                    str_replace($month_1,$month_2,$new_Date_Format_1);
 
                     ?>
 
@@ -56,7 +58,9 @@ require_once 'utils/dates.php'; ?>
 
                     $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
-                    echo str_replace($month_1,$month_2,$new_Date_Format_2);
+                    ?>
+                    <?= 
+                    str_replace($month_1,$month_2,$new_Date_Format_2);
 
                     ?>
                                                 
@@ -136,17 +140,19 @@ require_once 'utils/dates.php'; ?>
 
                 <p>
                     <label class="sr-only">Nom</label>
-                    <input name="pseudo" value="<?php if(isset($pseudo)) echo $pseudo ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
+                    <input name="pseudo" value="<?php if(isset($pseudo)): ?>
+                    <?=  $pseudo ?><?php  endif; ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Email</label>
-                    <input name="email" value="<?php if(isset($email)) echo $email ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
+                    <input name="email" value="<?php if(isset($email)): ?>
+                    <?= $email ?><?php  endif; ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Message</label>
-                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)) echo $comment ?></textarea>
+                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)): ?><?= $comment ?><?php  endif; ?></textarea>
                 </p>
 
                 <input type="submit" name="add" class="btn btn-primary special-btn-comment" value="Envoyer" onclick="return(confirm('Validez-vous ce choix ?'));" />
@@ -208,7 +214,9 @@ require_once 'utils/dates.php'; ?>
     
                 $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
     
-                echo str_replace($month_1,$month_2,$new_Date_Format_2);
+                ?>
+                <?=  
+                str_replace($month_1,$month_2,$new_Date_Format_2);
     
                 ?>
             

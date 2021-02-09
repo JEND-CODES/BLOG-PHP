@@ -54,7 +54,9 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
-                echo str_replace($month_1,$month_2,$new_Date_Format_2);
+                ?>
+                <?= 
+                str_replace($month_1,$month_2,$new_Date_Format_2);
 
                 ?>
 
@@ -114,7 +116,9 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
-                echo str_replace($month_1,$month_2,$new_Date_Format_1);
+                ?>
+                <?= 
+                str_replace($month_1,$month_2,$new_Date_Format_1);
 
                 ?>
 

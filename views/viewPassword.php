@@ -40,12 +40,12 @@ $nav_title = "MODIFICATION DU MOT DE PASSE";
 
               <p>
                 <label class="sr-only">Mot de passe actuel</label>
-                <input type="password" name="password" value="<?php if(isset($password)) echo $password;?>" placeholder="PASSWORD ACTUEL" class="form-control" required autofocus>
+                <input type="password" name="password" value="<?php if(isset($password)): ?><?= $password;?><?php endif; ?>" placeholder="PASSWORD ACTUEL" class="form-control" required autofocus>
               </p>
 
               <p>
                 <label class="sr-only">Nouveau mot de passe</label>
-                <input type="password" name="password2" value="<?php if(isset($password2)) echo $password2;?>" placeholder="NOUVEAU PASSWORD" class="form-control" required autofocus>
+                <input type="password" name="password2" value="<?php if(isset($password2)): ?><?= $password2;?><?php endif; ?>" placeholder="NOUVEAU PASSWORD" class="form-control" required autofocus>
               </p>
 
               <p>

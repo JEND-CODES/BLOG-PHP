@@ -67,7 +67,7 @@ $nav_title = "INSCRIPTION";
 
                         <p>
                         <label class="sr-only">Identifiant</label>
-                        <input id="pseudo_checked" name="pseudo" value="<?php if(isset($pseudo)) echo $pseudo; ?>" placeholder="CHOIX DU PSEUDO" class="form-control" type="text" required autofocus>
+                        <input id="pseudo_checked" name="pseudo" value="<?php if(isset($pseudo)): ?><?= $pseudo; ?><?php endif; ?>" placeholder="CHOIX DU PSEUDO" class="form-control" type="text" required autofocus>
                         </p>
 
                         <button class="btn btn-info btn-block" type="submit">VÉRIFIER</button>
