@@ -30,9 +30,15 @@ class ControllerAccess
             header('Location:'.URL.'backoff');
         
 
-        if(!empty($_POST))
+        // Filtres de traitements de $_POST
+        // Filtrage de la superglobale au cas où elle aurait un contenu empoisonné
+        // https://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
+        // $post = filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_STRING);
+        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        if(!empty($post))
         {
-            extract($_POST);
+            extract($post);
             
             $errors = array();
 
