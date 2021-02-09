@@ -38,7 +38,7 @@ $nav_title = "NOUVEL ARTICLE";
             
             <p>
                 <label class="sr-only">Titre du post</label>
-                <input type="text" name="title" value="<?php if(isset($title)): ?><?= $title; ?><?php endif ?>" placeholder="TITRE" class="form-control" required autofocus>
+                <input type="text" name="title" value="<?= mysql_real_escape_string($title); ?>" placeholder="TITRE" class="form-control" required autofocus>
             </p>
 
             <p>
