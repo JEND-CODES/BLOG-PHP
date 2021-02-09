@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     items.slice(perPage).hide();
 
-    $('#pagination-container').pagination({
+    $("#pagination-container").pagination({
         items: numItems,
         itemsOnPage: perPage,
         prevText: "&laquo;",
