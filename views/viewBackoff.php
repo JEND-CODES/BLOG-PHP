@@ -60,7 +60,7 @@ $nav_title = "BACK OFFICE";
         
         if(isset($supprime)): ?>
     
-        <p class="special-message centered-text"><?= htmlentities($supprime, ENT_QUOTES, 'UTF-8'); ?></p>
+        <p class="special-message centered-text"><?= strip_tags($supprime); ?></p>
     
         <?php endif; ?>
 
@@ -74,7 +74,7 @@ $nav_title = "BACK OFFICE";
 
                     <div class="col-md-2">
 
-                        <img class="img-dashboard" src="<?= htmlentities($postsAuthor->getZerolink(), ENT_QUOTES, 'UTF-8'); ?>" class="img-responsive" alt="<?= htmlentities($postsAuthor->getTitle(), ENT_QUOTES, 'UTF-8'); ?>" title="<?= htmlentities($postsAuthor->getTitle(), ENT_QUOTES, 'UTF-8'); ?>">
+                        <img class="img-dashboard" src="<?= strip_tags($postsAuthor->getZerolink()); ?>" class="img-responsive" alt="<?= strip_tags($postsAuthor->getTitle()); ?>" title="<?= strip_tags($postsAuthor->getTitle()); ?>">
 
                     </div>
                 
