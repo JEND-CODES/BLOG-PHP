@@ -28,7 +28,7 @@ $nav_title = "CONNEXION";
 
                 <p>
                   <label class="sr-only">Identifiant</label>
-                  <input name="member" value="<?php if(isset($member)): ?><?= $member; ?><?php endif; ?>" class="form-control" type="text" placeholder="IDENTIFIANT" required autofocus>
+                  <input name="member" value="<?php if(isset($member)): ?><?= htmlspecialchars($member); ?><?php endif; ?>" class="form-control" type="text" placeholder="IDENTIFIANT" required autofocus>
                 </p>
 
                 <p>
