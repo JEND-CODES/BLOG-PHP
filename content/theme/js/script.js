@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     // Copie de valeurs d"un input à un autre dans le process de vérifications des pseudos disponibles (voir viewCheckusername.php)
-    const copy_value = $("#pseudo_checked").val(); // get the value from the first input
-    $("#input_checked").val(copy_value); // set the value to another input
+    const copyValue = $("#pseudo_checked").val(); // get the value from the first input
+    $("#input_checked").val(copyValue); // set the value to another input
 
     // Scroll to top button
     $(window).scroll(function () {
