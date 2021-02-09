@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // EDITION D'UN NOUVEL ARTICLE EN BACK OFFICE
 

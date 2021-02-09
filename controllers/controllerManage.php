@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // GESTION DES MEMBRES EN BACK OFFICE
 
@@ -41,10 +41,12 @@ class ControllerManage
         // Affichage des membres premium
         // $getManagers = $this->admin_infos->infoManagers();
 
-        // Affichage des membres premium (avec pagination)
-        if(isset($_GET['page']) && !empty($_GET['page'])){
+        $getPage = filter_input(INPUT_GET, 'page');
 
-            $limit = (int) strip_tags($_GET['page']);
+        // Affichage des membres premium (avec pagination)
+        if(isset($getPage) && !empty($getPage)){
+
+            $limit = (int) strip_tags($getPage);
 
             $new_limit = $limit * 2;
 

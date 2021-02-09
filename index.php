@@ -16,6 +16,7 @@ $self = htmlentities($_SERVER['PHP_SELF']);
 // Ici le str_replace remplace/masque la mention index.php en page d'accueil du site
 define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$self"));
 
+// $_SERVER -> Variables de serveur et d'exécution
 // $_SERVER est un tableau contenant des informations comme les en-têtes, dossiers et chemins du script
 
 // PHP ne sait pas qu'il doit appeler une fonction lorsqu'on essaye d'instancier une classe non déclarée. On va donc utiliser la fonction spl_autoload_register en spécifiant en premier paramètre le nom de la fonction à charger //cf.tuto OpenC https://openclassrooms.com/fr/courses/1665806-programmez-en-oriente-objet-en-php/1666060-utiliser-la-classe //Les classes sont chargées dynamiquement avec la fonction spl_autoload_register
@@ -44,16 +45,19 @@ spl_autoload_register(function($modelClass) {
 // CONTRÔLE DE L'AFFICHAGE DES PAGES
 try
 {
+    $getAction = filter_input(INPUT_GET, 'action');
     // Appel des pages via les fichiers controllers en cas d'actions utilisateurs
-    if(isset($_GET['action']))
+    if(isset($getAction))
     {
         // Ensuite, cette variable sert aussi à l'instanciation de tous les controllers..
-        $className = ucfirst($_GET['action']);
+        $className = ucfirst($getAction);
         
         if(file_exists('controllers/controller' . $className . '.php')) {
             require_once 'controllers/controller' . $className . '.php';
             // Appel de session_start() pour éviter de dupliquer le code dans tous les controllers
             session_start();
+            // Appel de la Classe Session
+            require_once 'utils/Session.php';
         }
         // https://www.php.net/manual/fr/function.ucfirst.php
             
@@ -76,7 +80,8 @@ try
         
         $controllerHome = new ControllerHome();
         $controllerHome();
-    }    
+    }
+
 }
 
 // En cas d'erreurs..

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // ACCÈS AU BACK OFFICE
 
@@ -65,10 +65,13 @@ class ControllerBackoff
             }
             */
 
-            // Gestion de la pagination pour l'administrateur
-            if(isset($_GET['page']) && !empty($_GET['page'])){
+            // $get = filter_input(INPUT_GET, 'param');
+            $getPage = filter_input(INPUT_GET, 'page');
 
-                $limit = (int) strip_tags($_GET['page']);
+            // Gestion de la pagination pour l'administrateur
+            if(isset($getPage) && !empty($getPage)){
+
+                $limit = (int) strip_tags($getPage);
     
                 $new_limit = $limit * 5;
     
@@ -113,9 +116,9 @@ class ControllerBackoff
             */
 
             // Gestion de la pagination pour un membre
-            if(isset($_GET['page']) && !empty($_GET['page'])){
+            if(isset($getPage) && !empty($getPage)){
 
-                $limit = (int) strip_tags($_GET['page']);
+                $limit = (int) strip_tags($getPage);
     
                 $new_limit = $limit * 5;
     

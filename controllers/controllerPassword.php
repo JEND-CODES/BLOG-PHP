@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // CHANGEMENT DE MOT DE PASSE EN BACK OFFICE POUR L'ADMINISTRATEUR
 

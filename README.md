@@ -25,7 +25,7 @@
 
 * Refactorisation, nommage en anglais des Controllers et des Views
 
-* Création de la classe Session dans le dossier Utils et révision des controllers (+ sanitize $_POST)
+* Création de la classe Session dans le dossier Utils et révision des controllers (+ sanitize $_POST + filter $_GET)
 
 * Rectifications CSS multiples suite à la prise en compte des analyses Codacy
 

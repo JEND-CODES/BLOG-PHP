@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // FIN DE SESSIONS
 

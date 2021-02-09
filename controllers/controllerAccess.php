@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // LOGIN ET SESSIONS POUR LES MEMBRES PREMIUM DU BLOG
 

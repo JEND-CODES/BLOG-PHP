@@ -23,11 +23,13 @@ class ControllerChapter
         // Contrôle du paramètre Get correspondant à l'Id de l'article
         // Le controller fait un test, un contrôle : il vérifie qu'on a reçu ou non en paramètre un id dans l'url ( $_GET['id'] )
 
-        if(empty($_GET['id']) OR !is_numeric($_GET['id']))
+        $getId = filter_input(INPUT_GET, 'id');
+
+        if(empty($getId) OR !is_numeric($getId))
             throw new Exception('Page introuvable'); 
         else
         {
-            extract($_GET);
+            extract(filter_input_array(INPUT_GET));
             // Méthode pour récupérer l'ID du chapitre
 
             $id = htmlentities($id);

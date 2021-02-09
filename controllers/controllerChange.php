@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // MISE À JOUR D'UN ARTICLE EN BACK OFFICE
 
@@ -28,12 +28,14 @@ class ControllerChange
         if(empty($session->vars['premium']))
             header('Location:'.URL.'home');
 
+        $getId = filter_input(INPUT_GET, 'id');
 
-        if(empty($_GET['id']) OR !is_numeric($_GET['id']))
+        if(empty($getId) OR !is_numeric($getId))
             throw new Exception('Page introuvable'); 
         else
         {
-            extract($_GET);
+            extract(filter_input_array(INPUT_GET));
+
             $id = htmlentities($id);
 
             $chapter = $this->post_bis->selectChapter($id);

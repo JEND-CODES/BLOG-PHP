@@ -1,6 +1,6 @@
 <?php
 
-require_once 'utils/Session.php';
+// require_once 'utils/Session.php';
 
 // GESTION DES COMMENTAIRES EN BACK OFFICE
 
@@ -60,10 +60,12 @@ class ControllerComments
         }
         */
 
-        // Affichage des commentaires déjà validés (avec pagination, 5 par page)
-        if(isset($_GET['page']) && !empty($_GET['page'])){
+        $getPage = filter_input(INPUT_GET, 'page');
 
-            $limit = (int) strip_tags($_GET['page']);
+        // Affichage des commentaires déjà validés (avec pagination, 5 par page)
+        if(isset($getPage) && !empty($getPage)){
+
+            $limit = (int) strip_tags($getPage);
 
             $new_limit = $limit * 3;
 

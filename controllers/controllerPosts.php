@@ -40,9 +40,12 @@ class ControllerPosts
             }
         }
 */
-        if(isset($_GET['page']) && !empty($_GET['page'])){
 
-            $limit = (int) strip_tags($_GET['page']);
+        $getPage = filter_input(INPUT_GET, 'page');
+
+        if(isset($getPage) && !empty($getPage)){
+
+            $limit = (int) strip_tags($getPage);
 
             $new_limit = $limit * 5;
 
