@@ -60,7 +60,7 @@ $nav_title = "BACK OFFICE";
         
         if(isset($supprime)): ?>
     
-        <p class="special-message centered-text"><?= strip_tags($supprime); ?></p>
+        <p class="special-message centered-text"><?= strip_tags(htmlentities($supprime)); ?></p>
     
         <?php endif; ?>
 
