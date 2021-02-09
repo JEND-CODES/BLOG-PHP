@@ -2,9 +2,9 @@
 $nav_title = "GESTION DES COMMENTAIRES"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
-<?php require_once('content/dates.php'); ?>
+<?php require_once 'content/dates.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -141,4 +141,4 @@ $nav_title = "GESTION DES COMMENTAIRES";
 </div>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

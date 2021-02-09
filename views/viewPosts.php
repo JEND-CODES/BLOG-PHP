@@ -2,9 +2,9 @@
 $nav_title = "DERNIERS POSTS"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
-<?php require_once('content/dates.php'); ?>
+<?php require_once 'content/dates.php'; ?>
 
 <div class="medium-spacer"></div>
  
@@ -111,4 +111,4 @@ $nav_title = "DERNIERS POSTS";
 </section>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

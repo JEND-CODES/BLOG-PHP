@@ -16,7 +16,7 @@ class ControllerPosts
     public function __invoke()
     {
         
-        session_start();
+        // session_start();
 
         $count_chapters = $this->posts->totalChapters();
 /*
@@ -60,7 +60,7 @@ class ControllerPosts
         
         // $chapters = $this->posts->selectChaptersDesc();
         
-        require_once('views/viewPosts.php');
+        require_once 'views/viewPosts.php';
 
     }
   

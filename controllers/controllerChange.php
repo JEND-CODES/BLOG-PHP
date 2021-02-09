@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // MISE À JOUR D'UN ARTICLE EN BACK OFFICE
 
 class ControllerChange
@@ -13,11 +15,19 @@ class ControllerChange
     
     public function __invoke()
     {
-   
-        session_start();
         
+        // session_start();
+
+        /*
         if(empty($_SESSION['premium']))
             header('Location:'.URL.'home');
+        */
+
+        $session = new Session();
+
+        if(empty($session->vars['premium']))
+            header('Location:'.URL.'home');
+
 
         if(empty($_GET['id']) OR !is_numeric($_GET['id']))
             throw new Exception('Page introuvable'); 
@@ -74,7 +84,7 @@ class ControllerChange
 
         }
 
-        require_once('views/viewChange.php');
+        require_once 'views/viewChange.php';
 
     }
 }

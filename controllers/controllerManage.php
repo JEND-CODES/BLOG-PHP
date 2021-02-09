@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // GESTION DES MEMBRES EN BACK OFFICE
 
 class ControllerManage
@@ -17,10 +19,18 @@ class ControllerManage
     public function __invoke()
     {
   
-        session_start();
+        // session_start();
 
+        /*
         if($_SESSION['member_id'] != 1)
             header('Location:'.URL.'home');
+        */
+
+        $session = new Session();
+
+        if($session->vars['member_id'] != 1)
+            header('Location:'.URL.'home');
+
 
         // Affichage des membres premium
         $getManagers = $this->admin_infos->infoManagers();
@@ -53,7 +63,7 @@ class ControllerManage
         }
         
 
-        require_once('views/viewManage.php');
+        require_once 'views/viewManage.php';
 
     }
 }

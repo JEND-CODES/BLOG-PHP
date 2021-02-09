@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // ACCÈS AU BACK OFFICE
 
 class ControllerBackoff
@@ -20,13 +22,21 @@ class ControllerBackoff
     
     public function __invoke()
     {
-  
-        session_start();
+        
+        // session_start();
 
+        /*
         if(empty($_SESSION['premium']))
             header('Location:'.URL.'home');
+        */
 
-        if($_SESSION['member_id'] == 1)
+        $session = new Session();
+
+        if(empty($session->vars['premium']))
+            header('Location:'.URL.'home');
+
+        // if($_SESSION['member_id'] == 1)
+        if($session->vars['member_id'] == 1)
         {
 
             // Renvoi du nombre total d'articles
@@ -131,7 +141,7 @@ class ControllerBackoff
             $supprime = 'Article supprimé';     
         }
 
-        require_once('views/viewBackoff.php');
+        require_once 'views/viewBackoff.php';
 
     }
 }

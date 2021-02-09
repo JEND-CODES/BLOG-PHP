@@ -2,9 +2,9 @@
 $nav_title = "GESTION DES MEMBRES"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
-<?php require_once('content/dates.php'); ?>
+<?php require_once 'content/dates.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -127,4 +127,4 @@ $nav_title = "GESTION DES MEMBRES";
 <div id="pagination-container"></div>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

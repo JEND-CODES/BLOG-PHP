@@ -2,7 +2,7 @@
 $nav_title = "NOUVEL ARTICLE"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -62,4 +62,4 @@ $nav_title = "NOUVEL ARTICLE";
 </div>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

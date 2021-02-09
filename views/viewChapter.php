@@ -3,7 +3,7 @@ $nav_title = $chapter->getTitle();
 // Permet de définir le titre de l'article comme titre de l'onglet du navigateur
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
 <?php 
 // Appel pour changements du format des dates ($month_1, $month_2)
@@ -224,4 +224,4 @@ require_once('content/dates.php'); ?>
 </div>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

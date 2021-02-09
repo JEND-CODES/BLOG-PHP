@@ -10,7 +10,7 @@ class ControllerLogout
   
         // session_start — Démarre une nouvelle session ou reprend une session existante
         // https://www.php.net/manual/fr/function.session-start.php
-        session_start();
+        // session_start();
 
         // Désactivation de la SESSION Membres Premium
         unset($_SESSION['premium']);

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // GESTION DES COMMENTAIRES EN BACK OFFICE
 
 class ControllerComments
@@ -13,12 +15,20 @@ class ControllerComments
     
     public function __invoke()
     {
-      
-        session_start();
+        
+        // session_start();
 
+        /*
         if($_SESSION['member_id'] != 1)
             header('Location:'.URL.'home');
-            
+        */
+
+        $session = new Session();
+
+        // if($_SESSION['member_id'] == 1)
+        if($session->vars['member_id'] != 1)
+            header('Location:'.URL.'home');
+
         // Total des commentaires validés par l'administrateur
         $count_comments = $this->back_comment->checkedComments();
 
@@ -87,7 +97,7 @@ class ControllerComments
                 $freely = 'Commentaire autorisé';     
             }
 
-        require_once('views/viewComments.php');
+        require_once 'views/viewComments.php';
       
     }
 

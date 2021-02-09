@@ -1,4 +1,4 @@
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
 <!-- Header -->
 <header class="special-header" style="background-image:url(content/theme/img/homeBackground.png) !important;">
@@ -415,4 +415,4 @@
 <!-- Starter Bootsrap Theme - Contact Section END -->
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

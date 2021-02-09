@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // EDITION D'UN NOUVEL ARTICLE EN BACK OFFICE
 
 class ControllerNew
@@ -15,10 +17,18 @@ class ControllerNew
     public function __invoke()
     {
 
-        session_start();
         
+        // session_start();
+        /*
         if(empty($_SESSION['premium']))
             header('Location:'.URL.'home');
+        */
+
+        $session = new Session();
+
+        if(empty($session->vars['premium']))
+            header('Location:'.URL.'home');
+
 
         if(!empty($_POST))
         {
@@ -64,7 +74,7 @@ class ControllerNew
             }
         }
 
-        require_once('views/viewNew.php');
+        require_once 'views/viewNew.php';
 
     }
 }

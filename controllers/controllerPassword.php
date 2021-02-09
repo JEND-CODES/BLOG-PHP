@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // CHANGEMENT DE MOT DE PASSE EN BACK OFFICE POUR L'ADMINISTRATEUR
 
 class ControllerPassword
@@ -15,10 +17,18 @@ class ControllerPassword
     public function __invoke()
     {
 
-        session_start();
+        // session_start();
 
+        /*
         if($_SESSION['member_id'] != 1)
             header('Location:'.URL.'home');
+        */
+
+        $session = new Session();
+
+        if($session->vars['member_id'] != 1)
+            header('Location:'.URL.'home');
+        
         
         $connect = $this->new_pass->selectUser($_SESSION['premium']);
 
@@ -65,7 +75,7 @@ class ControllerPassword
             }
         }
 
-        require_once('views/viewPassword.php');
+        require_once 'views/viewPassword.php';
             
     }
 }

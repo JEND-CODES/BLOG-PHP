@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // LOGIN ET SESSIONS POUR LES MEMBRES PREMIUM DU BLOG
 
 class ControllerAccess
@@ -15,12 +17,18 @@ class ControllerAccess
     public function __invoke()
     {
 
-        session_start();
+        // session_start();
         
         // Si la session est en cours pour un membre
-        if(!empty($_SESSION['premium']))
+        // if(!empty($_SESSION['premium']))
             // Go to Back office Membres
+            // header('Location:'.URL.'backoff');
+
+        $session = new Session();
+
+        if(!empty($session->vars['premium']))
             header('Location:'.URL.'backoff');
+        
 
         if(!empty($_POST))
         {
@@ -54,11 +62,15 @@ class ControllerAccess
                     // https://www.php.net/manual/fr/reserved.variables.session.php
                     // https://www.php.net/manual/fr/ref.session.php
                     
+                    // $session = new Session();
+        
                     // Stockage en SESSION du Pseudo du membre connecté
-                    $_SESSION['premium'] = $member;
+                    $session->vars['premium'] = $member;
+                    // $_SESSION['premium'] = $member;
 
                     // Stockage en SESSION de l'ID du membre connecté
-                    $_SESSION['member_id'] = $return;
+                    $session->vars['member_id'] = $return;
+                    // $_SESSION['member_id'] = $return;
                     
                     // L'accès au Back Office est dédié uniquement aux membres premium
                     header('Location:'.URL.'backoff');
@@ -67,7 +79,7 @@ class ControllerAccess
             }
         }
 
-        require_once('views/viewAccess.php');
+        require_once 'views/viewAccess.php';
             
     }
 }

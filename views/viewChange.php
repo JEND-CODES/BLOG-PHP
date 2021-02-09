@@ -2,7 +2,7 @@
 $nav_title = "MODIFICATION D'UN ARTICLE"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -67,4 +67,4 @@ $nav_title = "MODIFICATION D'UN ARTICLE";
 </div>
 
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

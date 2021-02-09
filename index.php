@@ -34,7 +34,7 @@ spl_autoload_register(function($modelClass) {
     foreach( $dirs as $dir ) {
         if (file_exists($dir.$modelClass.'.php')) {
 
-            require_once($dir.$modelClass.'.php');
+            require_once $dir.$modelClass.'.php';
             return;
         }
     }
@@ -51,7 +51,9 @@ try
         $className = ucfirst($_GET['action']);
         
         if(file_exists('controllers/controller' . $className . '.php')) {
-            require_once('controllers/controller' . $className . '.php');
+            require_once 'controllers/controller' . $className . '.php';
+            // Appel de session_start() pour éviter de dupliquer le code dans tous les controllers
+            session_start();
         }
         // https://www.php.net/manual/fr/function.ucfirst.php
             
@@ -69,7 +71,8 @@ try
     
     else {
         // Appel de la vue racine du site (Accueil)
-        require_once('controllers/controllerHome.php');
+        require_once 'controllers/controllerHome.php';
+        session_start();
         
         $controllerHome = new ControllerHome();
         $controllerHome();
@@ -85,7 +88,7 @@ catch(Exception $e)
     $errorMsg = $e->getMessage();
     
     // On utilise la fonction require_once pour éviter de recharger plusieurs fois le même fichier
-    require_once('views/viewError.php');
+    require_once 'views/viewError.php';
 }
 
     

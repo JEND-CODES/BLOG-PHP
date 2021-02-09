@@ -2,7 +2,7 @@
 $nav_title = "CONNEXION"; 
 ?>
 
-<?php require_once('views/header.php'); ?>
+<?php require_once 'views/header.php'; ?>
 
 <div class="special-background-one">
 
@@ -50,4 +50,4 @@ $nav_title = "CONNEXION";
 
 </div>
 
-<?php require_once('views/footer.php'); ?>
+<?php require_once 'views/footer.php'; ?>

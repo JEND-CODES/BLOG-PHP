@@ -19,7 +19,7 @@ class ControllerChapter
     public function __invoke()
     {
     
-        session_start();
+        // session_start();
         // Contrôle du paramètre Get correspondant à l'Id de l'article
         // Le controller fait un test, un contrôle : il vérifie qu'on a reçu ou non en paramètre un id dans l'url ( $_GET['id'] )
 
@@ -109,7 +109,7 @@ class ControllerChapter
 
         }
 
-        require_once('views/viewChapter.php');
+        require_once 'views/viewChapter.php';
          
     }
     

@@ -125,6 +125,7 @@ class RepositoryComment extends Database
         $req->closeCursor();
     }
     
+    /*
     // NOMBRE TOTAL DE COMMENTAIRES (UTILISÉ DANS LE PROCESS DE PAGINATION)
     public function totalComments()
     {
@@ -140,7 +141,9 @@ class RepositoryComment extends Database
 
         $req->closeCursor();
     }
+    */
 
+    /*
     // PAGINATION DES COMMENTAIRES (TEST PAGE ABC.PHP)
     // On pagine ici sans besoin d'utiliser l'offset
     // function pagination($offset, $limit) {
@@ -171,8 +174,10 @@ class RepositoryComment extends Database
         $req->closeCursor(); 
             
     }
+    */
 
     // PAGINATION AVEC OFFSET DES COMMENTAIRES (TEST PAGE ABC.PHP)
+    /*
     function paginationOffset($limit, $offset) {
         
             $comment_lists = [];
@@ -194,7 +199,7 @@ class RepositoryComment extends Database
             $req->closeCursor(); 
                 
         }
-    
+    */
 
 
 }

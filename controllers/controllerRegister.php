@@ -1,5 +1,7 @@
 <?php
 
+require_once 'utils/Session.php';
+
 // ENREGISTREMENTS DE NOUVEAUX MEMBRES
 
 class ControllerRegister
@@ -15,10 +17,19 @@ class ControllerRegister
     public function __invoke()
     {
 
+        /*
         session_start();
 
         if(!empty($_SESSION['premium']))
             header('Location:'.URL.'backoff');
+
+        */
+
+        $session = new Session();
+
+        if(!empty($session->vars['premium']))
+            header('Location:'.URL.'backoff');
+
 
         $user = '';
 
@@ -89,7 +100,7 @@ class ControllerRegister
             }
         }
 
-        require_once('views/viewRegister.php');
+        require_once 'views/viewRegister.php';
 
     }
 }
