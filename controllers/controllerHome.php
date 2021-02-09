@@ -10,7 +10,7 @@ class ControllerHome
 
         // session_start();
 
-        require_once 'views/viewHome.php';
+        require 'views/viewHome.php';
 
     }
   
