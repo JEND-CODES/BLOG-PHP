@@ -8,9 +8,9 @@ class ControllerHome
     public function __invoke()
     {
 
-        session_start();
+        // session_start();
 
-        require_once('views/viewHome.php');
+        require_once 'views/viewHome.php';
 
     }
   
