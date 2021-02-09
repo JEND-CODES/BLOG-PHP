@@ -1,5 +1,7 @@
 # BLOG PHP
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/526fdc70ae264a678162052c381bca4b)](https://www.codacy.com/gh/JEND-CODES/BLOG-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEND-CODES/BLOG-PHP&amp;utm_campaign=Badge_Grade)
+
 ## Démo => http://cv.planetcode.fr
 
 ![BLOGPHP](https://raw.githubusercontent.com/JEND-CODES/BLOG-PHP/main/content/theme/img/CapchaBlog.JPG)
@@ -25,11 +27,13 @@
 
 * Refactorisation, nommage en anglais des Controllers et des Views
 
-* Création de la classe Session dans le dossier Utils et révision des controllers (+ sanitize $_POST + filter $_GET)
+* Création de la classe Session dans le dossier Utils et révision des controllers 
+
+* Sanitize $_POST + filter $_GET
 
 * Rectifications CSS multiples suite à la prise en compte des analyses Codacy
 
 * Révisions Codacy du projet toujours en cours...
 ```
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/526fdc70ae264a678162052c381bca4b)](https://www.codacy.com/gh/JEND-CODES/BLOG-PHP/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JEND-CODES/BLOG-PHP&amp;utm_campaign=Badge_Grade)
+
