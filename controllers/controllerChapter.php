@@ -33,9 +33,19 @@ class ControllerChapter
             $id = htmlentities($id);
 
             // Contrôle des champs obligatoires pour commenter un article
+            /*
             if(!empty($_POST['add']))
             {
                 extract($_POST);
+            */
+
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $postAdd = filter_input(INPUT_POST, 'add', FILTER_SANITIZE_STRING);
+
+            if(!empty($postAdd))
+            {
+                extract($post); 
 
                 $errors = array();
                 

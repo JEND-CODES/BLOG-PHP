@@ -79,7 +79,7 @@ class RepositoryComment extends Database
     }
 
     // SÉLECTION DE TOUS LES COMMENTAIRES PAR ORDRE DÉCROISSANT À CONDITION QU'ILS SOIENT DÉJÀ AUTORISÉS POUR LA PUBLICATION (AFFICHAGE AVEC PAGINATION)
-    function selectAlarmCommentsDesc($limit){
+    public function selectAlarmCommentsDesc($limit){
         
         $alarmComments2 = [];
 

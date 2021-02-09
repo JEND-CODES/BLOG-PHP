@@ -3,11 +3,12 @@ $nav_title = $chapter->getTitle();
 // Permet de définir le titre de l'article comme titre de l'onglet du navigateur
 ?>
 
-<?php require_once 'views/header.php'; ?>
+<?php 
+require_once 'views/header.php'; ?>
 
 <?php 
 // Appel pour changements du format des dates ($month_1, $month_2)
-require_once('content/dates.php'); ?>
+require_once 'utils/dates.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -37,7 +38,7 @@ require_once('content/dates.php'); ?>
 
                     $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
-                    print_r(str_replace($month_1,$month_2,$new_Date_Format_1));
+                    echo str_replace($month_1,$month_2,$new_Date_Format_1);
 
                     ?>
 
@@ -55,7 +56,7 @@ require_once('content/dates.php'); ?>
 
                     $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
-                    print_r(str_replace($month_1,$month_2,$new_Date_Format_2));
+                    echo str_replace($month_1,$month_2,$new_Date_Format_2);
 
                     ?>
                                                 
@@ -135,17 +136,17 @@ require_once('content/dates.php'); ?>
 
                 <p>
                     <label class="sr-only">Nom</label>
-                    <input name="pseudo" value="<?php if(isset($pseudo)) print_r($pseudo) ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
+                    <input name="pseudo" value="<?php if(isset($pseudo)) echo $pseudo ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Email</label>
-                    <input name="email" value="<?php if(isset($email)) print_r($email) ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
+                    <input name="email" value="<?php if(isset($email)) echo $email ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Message</label>
-                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)) print_r($comment) ?></textarea>
+                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)) echo $comment ?></textarea>
                 </p>
 
                 <input type="submit" name="add" class="btn btn-primary special-btn-comment" value="Envoyer" onclick="return(confirm('Validez-vous ce choix ?'));" />
@@ -207,7 +208,7 @@ require_once('content/dates.php'); ?>
     
                 $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
     
-                print_r(str_replace($month_1,$month_2,$new_Date_Format_2));
+                echo str_replace($month_1,$month_2,$new_Date_Format_2);
     
                 ?>
             

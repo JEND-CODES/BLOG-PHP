@@ -4,7 +4,7 @@ $nav_title = "GESTION DES MEMBRES";
 
 <?php require_once 'views/header.php'; ?>
 
-<?php require_once 'content/dates.php'; ?>
+<?php require_once 'utils/dates.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>
@@ -88,7 +88,7 @@ $nav_title = "GESTION DES MEMBRES";
 
         foreach($getManagers as $getManager): ?>
 
-            <div class="col-xs-10 col-xs-offset-1 col-md-12 manage-dashboard list-wrapper">
+            <div class="col-xs-10 col-xs-offset-1 col-md-12 manage-dashboard">
 
                 <div class="row block centered-text">
 
@@ -124,7 +124,34 @@ $nav_title = "GESTION DES MEMBRES";
 
 </div>
 
-<div id="pagination-container"></div>
+<!-- Pagination -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-9 col-md-offset-3">
+
+            <?php if($count_managers > 1): ?>
+
+                <i class="fas fa-chevron-left special-chevron"></i>
+
+            <?php endif; ?>
+
+            <?php 
+
+            $numberBtn = floor($count_managers / 2);
+
+            foreach(range(0, $numberBtn) as $item): ?>
+
+                <a class="btn btn-info special_btn_nbr_<?= $item ?>" href="./manage?page=<?= $item ?>"><?= $item ?></a>
+
+            <?php endforeach; ?>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <?php require_once 'views/footer.php'; ?>

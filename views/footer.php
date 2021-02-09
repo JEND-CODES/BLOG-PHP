@@ -72,16 +72,6 @@
 
 <script src="content/theme/js/script.js"></script>
 
-<?php 
-// Condition d'activation du script de pagination jQuery
-if(strpos($_SERVER['REQUEST_URI'], 'manage')): ?>
-
-<script src="content/theme/js/jquery.simplePagination.js"></script>
-
-<script src="content/theme/js/pagination.js"></script>
-
-<?php endif; ?>
-
 </body>
 
 </html>

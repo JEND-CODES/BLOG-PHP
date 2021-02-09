@@ -4,7 +4,7 @@ $nav_title = "BACK OFFICE";
 
 <?php require_once 'views/header.php'; ?>
 
-<?php require_once 'content/dates.php'; ?>
+<?php require_once 'utils/dates.php'; ?>
 
 <div class="medium-spacer"></div>
 <div class="medium-spacer"></div>

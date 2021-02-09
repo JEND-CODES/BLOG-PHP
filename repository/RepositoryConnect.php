@@ -76,31 +76,50 @@ class RepositoryConnect extends Database
         $req->closeCursor(); 
     }
 
-    // RÉCUPÉRATION DES INFORMATIONS SUR LES MEMBRES INSCRITS SUR LE BLOG
-    public function infoManagers()
-    {  
-        $managers = array();
+    // NOMBRE TOTAL DE MANAGERS VALIDÉS PAR L'ADMINISTRATEUR
+    public function countManagers()
+    {
+        $req = $this->connectDB()->prepare('SELECT COUNT(*) AS nb_managers FROM cv_managers WHERE role = 1');
+
+        $req->execute();
+
+        $result = $req->fetch();
+
+        $nbManagers = (int) $result['nb_managers'];
+
+        return $nbManagers;
+
+        $req->closeCursor();
+    }
+
+    // SÉLECTION DE TOUS LES MANAGERS DÉJÀ VALIDÉS PAR L'ADMINISTRATEUR (ORDRE DÉCROISSANT AVEC PAGINATION)
+    public function infoManagers($limit){
         
-        $req = $this->connectDB()->query(
-            'SELECT * 
-            FROM cv_managers
+        $managers = [];
+
+        $req = $this->connectDB()->prepare(
+            'SELECT *
+            FROM cv_managers 
             WHERE id > 1
             AND role = 1
-            ORDER BY id
-            DESC'
+            ORDER BY id 
+            DESC
+            LIMIT :limit, 2'
         );
-        
+
+        $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+
         $req->execute();
 
         while($data = $req->fetch())
-        {   
+        {
             $managers[] = new Connect($data);
         }
 
         return $managers;
 
-        $req->closeCursor();
-        
+        $req->closeCursor(); 
+            
     }
 
     // RÉCUPÉRATION DES DERNIERS MEMBRES INSCRITS QUI N'ONT PAS ENCORE ÉTÉ VALIDÉS PAR L'ADMINISTRATEUR

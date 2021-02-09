@@ -32,18 +32,47 @@ class ControllerManage
             header('Location:'.URL.'home');
 
 
-        // Affichage des membres premium
-        $getManagers = $this->admin_infos->infoManagers();
-        
         // Affichage des nouveaux inscrits en attente de validation
         $getFutureMembers = $this->admin_infos->newRegistered();
-        
 
-        // Méthode pour supprimer un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=trash_user + name=deleteuser
+        // Renvoi du nombre total de managers validés
+        $count_managers = $this->admin_infos->countManagers();
+
+        // Affichage des membres premium
+        // $getManagers = $this->admin_infos->infoManagers();
+
+        // Affichage des membres premium (avec pagination)
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+
+            $limit = (int) strip_tags($_GET['page']);
+
+            $new_limit = $limit * 2;
+
+            $getManagers = $this->admin_infos->infoManagers($new_limit); 
+    
+        }else{
+
+            $new_limit = 0;
+
+            $limit = 0;
+
+            $getManagers = $this->admin_infos->infoManagers($limit);
+        }
         
+        // Méthode pour supprimer un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=trash_user + name=deleteuser
+        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $postTrash = filter_input(INPUT_POST, 'trash_user', FILTER_SANITIZE_STRING);
+
+        /*
         if(!empty($_POST['trash_user']))
         {
-            extract($_POST);    
+            extract($_POST);
+        */
+        
+        if(!empty($postTrash))
+        {
+            extract($post);     
 
             $this->admin_infos->deleteUser($delete_user);
 
@@ -52,10 +81,18 @@ class ControllerManage
         
 
         // Méthode pour mettre à jour un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=premium_user + name=update_role
-        
+
+        $postPremium = filter_input(INPUT_POST, 'premium_user', FILTER_SANITIZE_STRING);
+
+        /*
         if(!empty($_POST['premium_user']))
         {
-            extract($_POST);    
+            extract($_POST);   
+        */
+        
+        if(!empty($postPremium))
+        {
+            extract($post);      
 
             $this->admin_infos->updateRole($update_role);
 

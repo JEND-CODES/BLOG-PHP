@@ -36,11 +36,20 @@ class ControllerChange
             extract($_GET);
             $id = htmlentities($id);
 
-            $chapter = $this->post_bis->selectChapter($id); 
+            $chapter = $this->post_bis->selectChapter($id);
+            
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+            /*
             if(!empty($_POST))
             {
                 extract ($_POST);
+            */
+            
+            if(!empty($post))
+            {
+                extract ($post);
+
                 $errors = array();
 
                 $title = htmlentities($title);

@@ -132,9 +132,19 @@ class ControllerBackoff
 
         }
 
+        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        $postDelete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_STRING);
+
+        /* 
         if(!empty($_POST['delete']))
         {
             extract($_POST);    
+        */
+
+        if(!empty($postDelete))
+        {
+            extract($post); 
 
             $this->filter_chapters->deleteChapter($edit);
 
