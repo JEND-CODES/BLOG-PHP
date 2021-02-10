@@ -38,18 +38,18 @@ $nav_title = "NOUVEL ARTICLE";
             
             <p>
                 <label class="sr-only">Titre du post</label>
-                <input type="text" name="title" value="<?= htmlspecialchars(mysql_real_escape_string($title)); ?>" placeholder="TITRE" class="form-control" required autofocus>
+                <input type="text" name="title" value="<?php if(isset($title)): ?><?= htmlspecialchars($title); ?><?php endif ?>" placeholder="TITRE" class="form-control" required autofocus>
             </p>
 
             <p>
                 <label class="sr-only">Résumé du post</label>
                 <textarea rows="5" name="chapi" placeholder="RÉSUMÉ" class="form-control" required><?php if(isset($chapi)): ?>
-                <?= $chapi; ?><?php endif ?></textarea>
+                <?= htmlspecialchars($chapi); ?><?php endif ?></textarea>
             </p>
 
             <p>
                 <label class="sr-only">Thumbnail</label>
-                <input type="text" name="zerolink" value="<?php if(isset($zerolink)): ?><?= $zerolink; ?><?php endif ?>" placeholder="THUMBNAIL" class="form-control" required>
+                <input type="text" name="zerolink" value="<?php if(isset($zerolink)): ?><?= htmlspecialchars($zerolink); ?><?php endif ?>" placeholder="THUMBNAIL" class="form-control" required>
             </p>
 
             <textarea name="content" class="tinymce"><?php if(isset($content)): ?><?= $content; ?><?php endif ?></textarea>

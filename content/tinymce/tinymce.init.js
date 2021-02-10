@@ -1,4 +1,4 @@
-tinymce.init({
+﻿tinymce.init({
 
     setup: function (editor) {
         editor.on("PostProcess", function (ed) {
@@ -27,6 +27,9 @@ tinymce.init({
 
             ed.content = ed.content.replace(/(<p>)/gi, "<br \/>");
             ed.content = ed.content.replace(/(<\/p>)/gi, "<br \/>");
+
+            ed.content = ed.content.replace(/(<script>)/gi, "<br \/>");
+            ed.content = ed.content.replace(/(<\/script>)/gi, "<br \/>");
 
             ed.content = ed.content.replace(/(<div)/gi, "<br");
 

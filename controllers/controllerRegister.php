@@ -38,9 +38,9 @@ class ControllerRegister
         // Le Pseudo doit nécessairement être unique !
         // On empêche ici l'injection de doublons et aussi dans la Base de données avec l'ajout de l'index UNIQUE ajouté à la colonne "user" de la table SQL cv_managers (ALTER TABLE `cv_managers` ADD UNIQUE( `user`);)
 
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $postValue = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
+        $formPseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['pseudo']))
@@ -48,9 +48,9 @@ class ControllerRegister
             extract($_POST);  
         */
         
-        if(!empty($postValue))
+        if(!empty($formPseudo))
         {
-            extract($post);  
+            extract($form);  
 
             $pseudo = htmlentities($pseudo);
 
@@ -77,9 +77,9 @@ class ControllerRegister
 
         // $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $postUser = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
+        $formUser = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
 
-        $postPassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $formPassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['user']) && !empty($_POST['password']))
@@ -87,9 +87,9 @@ class ControllerRegister
             extract($_POST);  
         */
         
-        if(!empty($postUser) && !empty($postPassword))
+        if(!empty($formUser) && !empty($formPassword))
         {
-            extract($post);  
+            extract($form);  
             
             $errors = array();
 

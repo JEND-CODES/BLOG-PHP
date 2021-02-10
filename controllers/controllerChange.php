@@ -40,7 +40,7 @@ class ControllerChange
 
             $chapter = $this->post_bis->selectChapter($id);
             
-            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $form = filter_input_array(INPUT_POST);
 
             /*
             if(!empty($_POST))
@@ -48,9 +48,9 @@ class ControllerChange
                 extract ($_POST);
             */
             
-            if(!empty($post))
+            if(!empty($form))
             {
-                extract ($post);
+                extract ($form);
 
                 $errors = array();
 

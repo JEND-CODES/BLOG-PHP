@@ -41,19 +41,19 @@ class ControllerChapter
                 extract($_POST);
             */
 
-            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $postAdd = filter_input(INPUT_POST, 'add', FILTER_SANITIZE_STRING);
+            $formAdd = filter_input(INPUT_POST, 'add', FILTER_SANITIZE_STRING);
 
-            if(!empty($postAdd))
+            if(!empty($formAdd))
             {
-                extract($post); 
+                extract($form); 
 
                 $errors = array();
                 
                 // Le tableau $errors doit rester vide pour valider le formulaire 
 
-                // Empêcher les attaques XSS. Utiliser la fonction plus approprié htmlentities()
+                // Empêcher les attaques XSS. Utiliser la fonction plus appropriée htmlentities() supprime tous les caractères HTML éligibles
                 
                 $pseudo = htmlentities($pseudo);
 

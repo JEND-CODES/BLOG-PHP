@@ -42,6 +42,7 @@ spl_autoload_register(function($modelClass) {
 
 });
 
+
 // CONTRÔLE DE L'AFFICHAGE DES PAGES
 try
 {
@@ -52,12 +53,16 @@ try
         // Ensuite, cette variable sert aussi à l'instanciation de tous les controllers..
         $className = ucfirst($getAction);
         
-        if(file_exists('controllers/controller' . $className . '.php')) {
+        if(file_exists('controllers/controller' . $className . '.php')) 
+        {
             require_once 'controllers/controller' . $className . '.php';
             // Appel de session_start() pour éviter de dupliquer le code dans tous les controllers
             session_start();
             // Appel de la Classe Session
             require_once 'utils/Session.php';
+            // Appel automatique des vues associées à chaque nom de controller ?
+            // $billy = strtolower($className);
+            // require_once 'views/view' . $className . '.php';
         }
         // https://www.php.net/manual/fr/function.ucfirst.php
             
@@ -80,6 +85,7 @@ try
         
         $controllerHome = new ControllerHome();
         $controllerHome();
+        // require_once 'views/viewHome.php';
     }
 
 }
@@ -95,5 +101,4 @@ catch(Exception $e)
     // On utilise la fonction require_once pour éviter de recharger plusieurs fois le même fichier
     require_once 'views/viewError.php';
 }
-
-    
+     

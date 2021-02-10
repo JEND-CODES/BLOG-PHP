@@ -1,5 +1,5 @@
 <?php 
-$nav_title = $chapter->getTitle(); 
+$nav_title = htmlspecialchars($chapter->getTitle()); 
 // Permet de définir le titre de l'article comme titre de l'onglet du navigateur
 ?>
 
@@ -25,16 +25,16 @@ require_once 'utils/dates.php'; ?>
 
                 <div class="col-md-6">
 
-                    <h2 class="article-title"><?= $chapter->getTitle() ?></h2>
+                    <h2 class="article-title"><?= htmlspecialchars($chapter->getTitle()) ?></h2>
 
-                    <p class="post-date-info">Auteur : <?= ucfirst($chapter->getAuthor()) ?></p>
+                    <p class="post-date-info">Auteur : <?= ucfirst(htmlspecialchars($chapter->getAuthor())) ?></p>
 
                     <!-- Traitements des dates avec strtotime() -->
                     <p class="post-date-info">Publié le
 
                     <?php
 
-                    $sql_Date_1 = $chapter->getChapterDate();
+                    $sql_Date_1 = htmlspecialchars($chapter->getChapterDate());
 
                     $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
@@ -54,7 +54,7 @@ require_once 'utils/dates.php'; ?>
                                                 
                     <?php
 
-                    $sql_Date_2 = $chapter->getRefreshDate();
+                    $sql_Date_2 = htmlspecialchars($chapter->getRefreshDate());
 
                     $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
@@ -68,13 +68,13 @@ require_once 'utils/dates.php'; ?>
 
                     <?php endif; ?>
 
-                    <p class="post-chapo-2"><?= $chapter->getChapi() ?></p>
+                    <p class="post-chapo-2"><?= htmlspecialchars($chapter->getChapi()) ?></p>
 
                 </div>
 
                 <div class="col-md-6">
 
-                    <img src="<?= $chapter->getZerolink() ?>" class="img-responsive img-special-post" alt="<?= $chapter->getTitle() ?>" title="<?= $chapter->getTitle() ?>">
+                    <img src="<?= htmlspecialchars($chapter->getZerolink()) ?>" class="img-responsive img-special-post" alt="<?= htmlspecialchars($chapter->getTitle()) ?>" title="<?= htmlspecialchars($chapter->getTitle()) ?>">
 
                 </div>
 
@@ -104,7 +104,7 @@ require_once 'utils/dates.php'; ?>
                     <?php 
                     if($prevChapter): ?>
 
-                    <a href="chapter&amp;id=<?= $prevChapter->getId() ?>" class="btn">
+                    <a href="chapter&amp;id=<?= htmlspecialchars($prevChapter->getId()) ?>" class="btn">
                         <p><i class="fas fa-chevron-left"></i>&nbsp;Précédent</p>
                     </a>
 
@@ -113,7 +113,7 @@ require_once 'utils/dates.php'; ?>
                     <?php
                     if($nextChapter): ?>
 
-                    <a href="chapter&amp;id=<?= $nextChapter->getId() ?>" class="btn">
+                    <a href="chapter&amp;id=<?= htmlspecialchars($nextChapter->getId()) ?>" class="btn">
                         <p>Suivant&nbsp;<i class="fas fa-chevron-right"></i></p>
                     </a>
 
@@ -141,18 +141,18 @@ require_once 'utils/dates.php'; ?>
                 <p>
                     <label class="sr-only">Nom</label>
                     <input name="pseudo" value="<?php if(isset($pseudo)): ?>
-                    <?=  $pseudo ?><?php  endif; ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
+                    <?= htmlspecialchars($pseudo) ?><?php endif; ?>" class="form-control" type="text" placeholder="VOTRE PSEUDO" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Email</label>
                     <input name="email" value="<?php if(isset($email)): ?>
-                    <?= $email ?><?php  endif; ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
+                    <?= htmlspecialchars($email) ?><?php endif; ?>" class="form-control" type="email" placeholder="VOTRE EMAIL" required>
                 </p>
 
                 <p>
                     <label class="sr-only">Message</label>
-                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)): ?><?= $comment ?><?php  endif; ?></textarea>
+                    <textarea rows="5" name="comment" placeholder="VOTRE MESSAGE" class="form-control" required><?php if(isset($comment)): ?><?= htmlspecialchars($comment) ?><?php  endif; ?></textarea>
                 </p>
 
                 <input type="submit" name="add" class="btn btn-primary special-btn-comment" value="Envoyer" onclick="return(confirm('Validez-vous ce choix ?'));" />
@@ -206,11 +206,11 @@ require_once 'utils/dates.php'; ?>
     
             <hr>
     
-            <p>Par <?= ucfirst($comDesc->getPseudo()) ?> le 
+            <p>Par <?= ucfirst(htmlspecialchars($comDesc->getPseudo())) ?> le 
     
                 <?php
     
-                $sql_Date_2 = $comDesc->getCommentDate();
+                $sql_Date_2 = htmlspecialchars($comDesc->getCommentDate());
     
                 $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
     
@@ -222,7 +222,7 @@ require_once 'utils/dates.php'; ?>
             
             </p>
 
-            <p>'' <?= $comDesc->getComment() ?> ''</p>
+            <p>'' <?= htmlspecialchars($comDesc->getComment()) ?> ''</p>
 
             <?php endforeach; ?>
 

@@ -35,7 +35,7 @@ $nav_title = "GESTION DES MEMBRES";
                     
                     <div class="col-md-4 special-manage-col-1">
 
-                        <p>Pseudo : <?= ucfirst($getFutureMember->getUser()) ?></p>
+                        <p>Pseudo : <?= ucfirst(htmlspecialchars($getFutureMember->getUser())) ?></p>
 
                     </div>
 
@@ -43,7 +43,7 @@ $nav_title = "GESTION DES MEMBRES";
 
                         <form action="manage" method="post">
 
-                            <input type="hidden" name="update_role" value="<?= $getFutureMember->getId() ?>" />
+                            <input type="hidden" name="update_role" value="<?= htmlspecialchars($getFutureMember->getId()) ?>" />
 
                             <input type="submit" name="premium_user" class="btn btn-info special-manage-button" value="Valider" onclick="return(confirm('Validez-vous ce choix ?'));" />
 
@@ -51,7 +51,7 @@ $nav_title = "GESTION DES MEMBRES";
                         
                         <form action="manage" method="post">
 
-                            <input type="hidden" name="delete_user" value="<?= $getFutureMember->getId() ?>" />
+                            <input type="hidden" name="delete_user" value="<?= htmlspecialchars($getFutureMember->getId()) ?>" />
 
                             <input type="submit" name="trash_user" class="btn special-manage-button" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ?'));" />
 
@@ -96,7 +96,7 @@ $nav_title = "GESTION DES MEMBRES";
 
                     <div class="col-md-4 special-manage-col-1">
                     
-                        <p>Pseudo : <?= ucfirst($getManager->getUser()) ?></p>
+                        <p>Pseudo : <?= ucfirst(htmlspecialchars($getManager->getUser())) ?></p>
                         
                     </div>
 
@@ -104,7 +104,7 @@ $nav_title = "GESTION DES MEMBRES";
                         
                         <form action="manage" method="post">
 
-                            <input type="hidden" name="delete_user" value="<?= $getManager->getId() ?>" />
+                            <input type="hidden" name="delete_user" value="<?= htmlspecialchars($getManager->getId()) ?>" />
 
                             <input type="submit" name="trash_user" class="btn special-manage-button" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ? Attention, la suppression de cet utilisateur entraînera la suppression de ses articles'));" />
 

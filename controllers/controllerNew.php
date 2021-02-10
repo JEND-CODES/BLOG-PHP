@@ -29,7 +29,7 @@ class ControllerNew
         if(empty($session->vars['premium']))
             header('Location:'.URL.'home');
 
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST);
 
         /*
         if(!empty($_POST))
@@ -37,9 +37,9 @@ class ControllerNew
             extract($_POST);
         */
 
-        if(!empty($post))
+        if(!empty($form))
         {
-            extract($post);
+            extract($form);
 
             $errors = array();
 

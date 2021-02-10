@@ -37,12 +37,12 @@ class ControllerAccess
         // https://www.php.net/manual/en/function.filter-input-array.php
         // https://www.php.net/manual/en/filter.filters.sanitize.php
         // https://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
-        // $post = filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_STRING);
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // $form = filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        if(!empty($post))
+        if(!empty($form))
         {
-            extract($post);
+            extract($form);
             
             $errors = array();
 

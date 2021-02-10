@@ -33,7 +33,7 @@ class ControllerPassword
         // $connect = $this->new_pass->selectUser($_SESSION['premium']);
         $connect = $this->new_pass->selectUser($session->vars['premium']);
 
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST))
@@ -41,9 +41,9 @@ class ControllerPassword
             extract($_POST);
         */
 
-        if(!empty($post))
+        if(!empty($form))
         {
-            extract($post);
+            extract($form);
         
             $errors = array();
 

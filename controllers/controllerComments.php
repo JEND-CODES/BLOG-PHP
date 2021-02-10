@@ -34,31 +34,6 @@ class ControllerComments
 
         // Affichage des commentaires en attente de validation
         $alarmComments = $this->back_comment->selectAlarmComments();
-        
-        /*
-        // Affichage des commentaires déjà validés (avec pagination, 5 par page)
-        if(empty($_POST['next_page']))
-        {
-
-            $limit = 0;
-
-            $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($limit);     
-        }
-        
-
-        for ($i = 0; $i < $count_comments; $i++) {
-
-            if(!empty($_POST['next_page_'.$i]))
-            {
-
-                $new_limit = $i * 3;
-
-                $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($new_limit); 
-
-            }
-
-        }
-        */
 
         $getPage = filter_input(INPUT_GET, 'page');
 
@@ -80,9 +55,9 @@ class ControllerComments
             $alarmComments2 = $this->back_comment->selectAlarmCommentsDesc($limit);
         }
 
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $postDelete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_STRING);
+        $formDelete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['delete']))
@@ -90,9 +65,9 @@ class ControllerComments
             extract($_POST);
         */
         
-        if(!empty($postDelete))
+        if(!empty($formDelete))
         {
-            extract($post); 
+            extract($form); 
 
             $this->back_comment->deleteComment($act);
 
@@ -100,7 +75,7 @@ class ControllerComments
         }
 
 
-        $postShow = filter_input(INPUT_POST, 'show', FILTER_SANITIZE_STRING);
+        $formShow = filter_input(INPUT_POST, 'show', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['show']))
@@ -108,9 +83,9 @@ class ControllerComments
             extract($_POST);
         */
         
-        if(!empty($postShow))
+        if(!empty($formShow))
         {
-            extract($post); 
+            extract($form); 
 
                 $this->back_comment->freeComment($act);
 

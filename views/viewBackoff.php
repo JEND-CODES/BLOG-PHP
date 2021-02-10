@@ -60,7 +60,7 @@ $nav_title = "BACK OFFICE";
         
         if(isset($supprime)): ?>
     
-        <p class="special-message centered-text"><?= strip_tags(htmlentities($supprime)); ?></p>
+        <p class="special-message centered-text"><?= $supprime ?></p>
     
         <?php endif; ?>
 
@@ -74,13 +74,13 @@ $nav_title = "BACK OFFICE";
 
                     <div class="col-md-2">
 
-                        <img class="img-dashboard" src="<?= strip_tags($postsAuthor->getZerolink()); ?>" class="img-responsive" alt="<?= strip_tags($postsAuthor->getTitle()); ?>" title="<?= strip_tags($postsAuthor->getTitle()); ?>">
+                        <img class="img-dashboard" src="<?= htmlspecialchars($postsAuthor->getZerolink()); ?>" class="img-responsive" alt="<?= htmlspecialchars($postsAuthor->getTitle()); ?>" title="<?= htmlspecialchars($postsAuthor->getTitle()); ?>">
 
                     </div>
                 
                     <div class="col-md-4">
 
-                        <p><?= $postsAuthor->getTitle() ?></p>
+                        <p><?= htmlspecialchars($postsAuthor->getTitle()) ?></p>
 
                     </div>
 
@@ -90,7 +90,7 @@ $nav_title = "BACK OFFICE";
                 
                         <?php
 
-                        $sql_Date_1 = $postsAuthor->getChapterDate();
+                        $sql_Date_1 = htmlspecialchars($postsAuthor->getChapterDate());
 
                         $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
@@ -101,7 +101,7 @@ $nav_title = "BACK OFFICE";
 
                         ?> par 
 
-                        <?= ucfirst($postsAuthor->getAuthor()) ?>
+                        <?= htmlspecialchars(ucfirst($postsAuthor->getAuthor())) ?>
                             
                         </p>
 
@@ -113,7 +113,7 @@ $nav_title = "BACK OFFICE";
                     
                         <?php
 
-                        $sql_Date_2 = $postsAuthor->getRefreshDate();
+                        $sql_Date_2 = htmlspecialchars($postsAuthor->getRefreshDate());
 
                         $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
@@ -132,13 +132,13 @@ $nav_title = "BACK OFFICE";
 
                     <div class="col-md-3">
                         
-                        <a class="btn btn-info btn-block special-button" href="chapter&amp;id=<?= $postsAuthor->getId() ?>"> Lire&nbsp;<i class="fas fa-eye"></i></a>
+                        <a class="btn btn-info btn-block special-button" href="chapter&amp;id=<?= htmlspecialchars($postsAuthor->getId()) ?>"> Lire&nbsp;<i class="fas fa-eye"></i></a>
 
-                        <a class="btn btn-success btn-block special-button" href="change&amp;id=<?= $postsAuthor->getId() ?>"> Modifier&nbsp; <i class="fas fa-feather-alt"></i></a>
+                        <a class="btn btn-success btn-block special-button" href="change&amp;id=<?= htmlspecialchars($postsAuthor->getId()) ?>"> Modifier&nbsp; <i class="fas fa-feather-alt"></i></a>
 
                         <form action="backoff" method="post">
 
-                            <input type="hidden" name="edit" value="<?= $postsAuthor->getId() ?>" />
+                            <input type="hidden" name="edit" value="<?= htmlspecialchars($postsAuthor->getId()) ?>" />
 
                             <input class="btn special-button btn-block" type="submit" name="delete" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ?'));" />
 

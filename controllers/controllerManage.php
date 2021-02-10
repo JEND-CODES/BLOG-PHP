@@ -62,9 +62,9 @@ class ControllerManage
         }
         
         // Méthode pour supprimer un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=trash_user + name=deleteuser
-        $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        $postTrash = filter_input(INPUT_POST, 'trash_user', FILTER_SANITIZE_STRING);
+        $formTrash = filter_input(INPUT_POST, 'trash_user', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['trash_user']))
@@ -72,9 +72,9 @@ class ControllerManage
             extract($_POST);
         */
         
-        if(!empty($postTrash))
+        if(!empty($formTrash))
         {
-            extract($post);     
+            extract($form);     
 
             $this->admin_infos->deleteUser($delete_user);
 
@@ -84,7 +84,7 @@ class ControllerManage
 
         // Méthode pour mettre à jour un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=premium_user + name=update_role
 
-        $postPremium = filter_input(INPUT_POST, 'premium_user', FILTER_SANITIZE_STRING);
+        $formPremium = filter_input(INPUT_POST, 'premium_user', FILTER_SANITIZE_STRING);
 
         /*
         if(!empty($_POST['premium_user']))
@@ -92,9 +92,9 @@ class ControllerManage
             extract($_POST);   
         */
         
-        if(!empty($postPremium))
+        if(!empty($formPremium))
         {
-            extract($post);      
+            extract($form);      
 
             $this->admin_infos->updateRole($update_role);
 

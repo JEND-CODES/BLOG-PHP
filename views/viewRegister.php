@@ -59,7 +59,7 @@ $nav_title = "INSCRIPTION";
 
                         <?php endif; ?>
 
-                        <p><?= $getUsername->getUser() ?></p>
+                        <p><?= htmlspecialchars($getUsername->getUser()) ?></p>
                                           
                         <?php endforeach; ?>
             
@@ -67,7 +67,7 @@ $nav_title = "INSCRIPTION";
 
                         <p>
                         <label class="sr-only">Identifiant</label>
-                        <input id="pseudo_checked" name="pseudo" value="<?php if(isset($pseudo)): ?><?= $pseudo; ?><?php endif; ?>" placeholder="CHOIX DU PSEUDO" class="form-control" type="text" required autofocus>
+                        <input id="pseudo_checked" name="pseudo" value="<?php if(isset($pseudo)): ?><?= htmlspecialchars($pseudo); ?><?php endif; ?>" placeholder="CHOIX DU PSEUDO" class="form-control" type="text" required autofocus>
                         </p>
 
                         <button class="btn btn-info btn-block" type="submit">VÉRIFIER</button>
@@ -79,7 +79,7 @@ $nav_title = "INSCRIPTION";
                               
                   if(isset($registerForm)): ?>
                   
-                  <p><?= $registerForm ?></p>
+                  <p><?= ($registerForm) ?></p>
                   
                   <?php endif; ?>
 

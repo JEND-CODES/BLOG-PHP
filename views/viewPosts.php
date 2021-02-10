@@ -23,17 +23,17 @@ $nav_title = "DERNIERS POSTS";
 
                         <div class="col-md-6">
 
-                            <a href="chapter&amp;id=<?= $chapter->getId() ?>">    
-                                <img src="<?= $chapter->getZerolink() ?>" class="img-responsive featured-img" alt="<?= $chapter->getTitle() ?>" title="<?= $chapter->getTitle() ?>">
+                            <a href="chapter&amp;id=<?= htmlspecialchars($chapter->getId()) ?>">    
+                                <img src="<?= htmlspecialchars($chapter->getZerolink()) ?>" class="img-responsive featured-img" alt="<?= htmlspecialchars($chapter->getTitle()) ?>" title="<?= htmlspecialchars($chapter->getTitle()) ?>">
                             </a>
 
                         </div>
                         
                         <div class="col-md-6">
                             
-                            <a href="chapter&amp;id=<?= $chapter->getId() ?>">
+                            <a href="chapter&amp;id=<?= htmlspecialchars($chapter->getId()) ?>">
 
-                                <h3><?= $chapter->getTitle() ?></h3>
+                                <h3><?= htmlspecialchars($chapter->getTitle()) ?></h3>
 
                             </a>
 
@@ -43,7 +43,7 @@ $nav_title = "DERNIERS POSTS";
                             // Transformer date_format : Cf. https://www.php.net/manual/fr/datetime.format.php
                             // Solution avec strtotime() -> Cf. https://tecadmin.net/convert-date-format-in-php/
 
-                            $sql_Date_1 = $chapter->getChapterDate();
+                            $sql_Date_1 = htmlspecialchars($chapter->getChapterDate());
 
                             $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
@@ -62,7 +62,7 @@ $nav_title = "DERNIERS POSTS";
                                                         
                             <?php
 
-                            $sql_Date_2 = $chapter->getRefreshDate();
+                            $sql_Date_2 = htmlspecialchars($chapter->getRefreshDate());
 
                             $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
@@ -75,7 +75,7 @@ $nav_title = "DERNIERS POSTS";
 
                             <?php endif; ?>
 
-                            <p class="post-chapo"><?= substr($chapter->getChapi(),0,300) ?> ...</p>
+                            <p class="post-chapo"><?= substr(htmlspecialchars($chapter->getChapi()),0,300) ?> ...</p>
 
                         </div>
                         

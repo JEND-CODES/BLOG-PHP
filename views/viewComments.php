@@ -46,11 +46,11 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
             <div class="col-xs-10 col-xs-offset-1 col-md-10 comment-dashboard">
 
-                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst($alarmComment2->getPseudo()) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= $alarmComment2->getEmail() ?></a> le 
+                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst(htmlspecialchars($alarmComment2->getPseudo())) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= htmlspecialchars($alarmComment2->getEmail()) ?></a> le 
 
                 <?php
 
-                $sql_Date_2 = $alarmComment2->getCommentDate();
+                $sql_Date_2 = htmlspecialchars($alarmComment2->getCommentDate());
 
                 $new_Date_Format_2 = date("d .m Y à H:i", strtotime($sql_Date_2));
 
@@ -62,11 +62,11 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 &#8239;: </p>
 
-                <p>''&nbsp;<?= $alarmComment2->getComment() ?>&nbsp;''</p>
+                <p>''&nbsp;<?= htmlspecialchars($alarmComment2->getComment()) ?>&nbsp;''</p>
 
                 <form action="comments" method="post">
 
-                    <input type="hidden" name="act" value="<?= $alarmComment2->getId() ?>" />
+                    <input type="hidden" name="act" value="<?= htmlspecialchars($alarmComment2->getId()) ?>" />
 
                     <input type="submit" name="delete" class="btn" value="Supprimer" onclick="return(confirm('Validez-vous ce choix ?'));" />
 
@@ -108,11 +108,11 @@ $nav_title = "GESTION DES COMMENTAIRES";
         
             <div class="col-xs-10 col-xs-offset-1 col-md-10 margin comment-dashboard">
 
-                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst($alarmComment->getPseudo()) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= $alarmComment->getEmail() ?></a> le 
+                <p>•&nbsp;&nbsp;Envoyé par <?= ucfirst(htmlspecialchars($alarmComment->getPseudo())) ?> &rArr; <a href="https://www.google.com/intl/fr/gmail/about/" target="_blank"><?= htmlspecialchars($alarmComment->getEmail()) ?></a> le 
 
                 <?php
 
-                $sql_Date_1 = $alarmComment->getCommentDate();
+                $sql_Date_1 = htmlspecialchars($alarmComment->getCommentDate());
 
                 $new_Date_Format_1 = date("d .m Y à H:i", strtotime($sql_Date_1));
 
@@ -124,11 +124,11 @@ $nav_title = "GESTION DES COMMENTAIRES";
 
                 &#8239;: </p>
 
-                <p>''&nbsp;<?= $alarmComment->getComment() ?>&nbsp;''</p>
+                <p>''&nbsp;<?= htmlspecialchars($alarmComment->getComment()) ?>&nbsp;''</p>
 
                 <form action="comments" method="post">
 
-                    <input type="hidden" name="act" value="<?= $alarmComment->getId() ?>" />
+                    <input type="hidden" name="act" value="<?= htmlspecialchars($alarmComment->getId()) ?>" />
 
                     <input type="submit" name="show" class="btn btn-success" value="Autoriser" onclick="return(confirm('Validez-vous ce choix ?'));" />
 

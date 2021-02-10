@@ -14,7 +14,7 @@ $nav_title = "MODIFICATION D'UN ARTICLE";
 
     <div class="row">
 
-        <form action="change&amp;id=<?= $chapter->getId() ?>" method="post" class="col-md-10 col-md-offset-1">
+        <form action="change&amp;id=<?= htmlspecialchars($chapter->getId()) ?>" method="post" class="col-md-10 col-md-offset-1">
 
             <?php 
                     
@@ -38,22 +38,22 @@ $nav_title = "MODIFICATION D'UN ARTICLE";
 
             <p>
                 <label class="sr-only">Titre du post</label>
-                <input type="text" name="title" value="<?= $chapter->getTitle() ?>" placeholder="TITRE" class="form-control" required>
+                <input type="text" name="title" value="<?= htmlspecialchars($chapter->getTitle()) ?>" placeholder="TITRE" class="form-control" required>
             </p>
 
             <p>
                 <label class="sr-only">Résumé du post</label>
-                <textarea rows="5" name="chapi" placeholder="RÉSUMÉ" class="form-control" required><?= $chapter->getChapi() ?></textarea>
+                <textarea rows="5" name="chapi" placeholder="RÉSUMÉ" class="form-control" required><?= htmlspecialchars($chapter->getChapi()) ?></textarea>
             </p>
 
             <p>
                 <label class="sr-only">Thumbnail</label>
-                <input type="text" name="zerolink" value="<?= $chapter->getZerolink() ?>" placeholder="THUMBNAIL" class="form-control" required>
+                <input type="text" name="zerolink" value="<?= htmlspecialchars($chapter->getZerolink()) ?>" placeholder="THUMBNAIL" class="form-control" required>
             </p>
 
             <p>
                 <label class="sr-only">Auteur du post</label>
-                <input type="text" name="author" value="<?= ucfirst($chapter->getAuthor()) ?>" placeholder="AUTEUR DU POST" class="form-control" required>
+                <input type="text" name="author" value="<?= ucfirst(htmlspecialchars($chapter->getAuthor())) ?>" placeholder="AUTEUR DU POST" class="form-control" required>
             </p>
 
             <textarea name="content" class="tinymce"><?= $chapter->getContent() ?></textarea>
