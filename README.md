@@ -29,11 +29,11 @@
 
 * Création de la classe Session dans le dossier Utils et révision des controllers 
 
-* Sanitize $_POST + filter $_GET
+* Sanitize $_POST + filter $_GET 
 
-* Rectifications CSS multiples suite à la prise en compte des analyses Codacy
+* Views : XSS Security htmlspecialchars()
 
-* Révisions Codacy du projet toujours en cours...
+* Rectifications multiples suite à la prise en compte des analyses Codacy
 ```
 
 
