@@ -1,9 +1,6 @@
 <?php
 
-// La page Index sert de router 
-// La page appelle les classes et les fonctions des Controllers
-// La page Index sert aussi de chargement des classes Models et des Classes Repository
-// Le fichier index.php sert à opérer les redirections pour le bon fonctionnement du blog
+// ROUTER : AUTOLOAD ET INSTANCIATION AUTOMATIQUE DES CONTROLLERS
 
 // dirname() — Renvoie le chemin du dossier parent
 define('ROOT', dirname(__FILE__));
@@ -24,26 +21,27 @@ define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 // Voir sur php.net : https://www.php.net/manual/fr/language.oop5.autoload.php
 // Voir cette méthode indiquée sur php.net : https://www.php.net/manual/fr/function.spl-autoload-register.php
 
-// APPEL DE TOUTES LES CLASSES DES DOSSIERS MODELS ET REPOSITORY
-spl_autoload_register(function($modelClass) {
+spl_autoload_register(function ($autoClass) {
 
-    $dirs = array(
-        'models/',
-        'repository/', 
-    );
+    $dir_separator = DIRECTORY_SEPARATOR;
+    $directory = __DIR__;
 
-    foreach( $dirs as $dir ) {
-        if (file_exists($dir.$modelClass.'.php')) {
+    $autoClass = str_replace('\\', $dir_separator, $autoClass);
 
-            require_once $dir.$modelClass.'.php';
-            return;
-        }
-    }
+    $file_path = "{$directory}{$dir_separator}{$autoClass}.php";
+
+    if (is_readable($file_path)) 
+        require_once $file_path;
 
 });
 
-
 // CONTRÔLE DE L'AFFICHAGE DES PAGES
+// ÉTAPES
+// 1 : On contrôle l'action $_GET dans l'URL (exemple ../blog/posts)
+// 2 : On vérifie si le $_GET en cours (ex : "posts") correspond bien à un nom de fichier dans le dossier \controllers (ex : présence de "controllerPosts")
+// 3 : Si oui on active via une concaténation du namespace l'instanciation de la classe du fichier trouvé (ex : " $instance = new Controllers\ControllerPosts(); ControllerPosts(); )
+// 4 : Si le param GET est vide (ex : ../blog/index.php ou simplement ../blog/) alors on instancie le controller de la homepage (voir : $controllerHome();)
+// 5 : Si l'Url indiquée par l'internaute n'existe pas, message d'erreur "Adresse url erronée"
 try
 {
     $getAction = filter_input(INPUT_GET, 'action');
@@ -52,40 +50,42 @@ try
     {
         // Ensuite, cette variable sert aussi à l'instanciation de tous les controllers..
         $className = ucfirst($getAction);
-        
-        if(file_exists('controllers/controller' . $className . '.php')) 
+        // $className = $getAction;
+
+        // Les caractères passés dans l'URL correspondent-ils à l'existence d'un fichier Controller ?
+        // Si oui..
+        if(file_exists('controllers/controller'. $className .'.php')) 
         {
-            require_once 'controllers/controller' . $className . '.php';
             // Appel de session_start() pour éviter de dupliquer le code dans tous les controllers
             session_start();
-            // Appel de la Classe Session
-            require_once 'utils/Session.php';
-            // Appel automatique des vues associées à chaque nom de controller ?
-            // $billy = strtolower($className);
-            // require_once 'views/view' . $className . '.php';
+            
+            // INSTANCIATION AUTOMATIQUE DES CLASSES CONTROLLERS VIA UNE CONCATÉNATION DES NAMESPACES CONTROLLERS :
+
+            $concat = '\Controllers\\Controller'.$className.'';
+            // Ça donne ensuite par exemple : 
+            // $instance = new Controllers\ControllerBackoff();
+            $instance = new $concat();
+
+            $instance();
+
+            // var_dump($className);
+            // var_dump($concat);
+            // var_dump($instance);
         }
-        // https://www.php.net/manual/fr/function.ucfirst.php
             
         else {
-            throw new Exception('');
-        } 
 
-        // Instanciations de tous les controllers :
-        $class = 'Controller'.$className;
-        $instance = new $class();
-        // Appel des fonctions (cf. méthode __invoke()) :
-        $instance();
+            throw new Exception('');
+
+        } 
 
     }
     
     else {
-        // Appel de la vue racine du site (Accueil)
-        require_once 'controllers/controllerHome.php';
-        session_start();
-        
-        $controllerHome = new ControllerHome();
+    
+        $controllerHome = new Controllers\ControllerHome();
         $controllerHome();
-        // require_once 'views/viewHome.php';
+
     }
 
 }
