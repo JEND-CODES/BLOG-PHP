@@ -37,7 +37,7 @@
 
 * Router : réécriture de la fonction spl_autoload_register()
 
-* Révision de l\'instanciation automatique des Classes dans le Router
+* Révision des instanciations automatiques des Classes dans le Router
 ```
 
 
