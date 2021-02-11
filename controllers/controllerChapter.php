@@ -1,5 +1,13 @@
 <?php
 
+namespace Controllers;
+
+use Repository\RepositoryChapter;
+
+use Models\Comment;
+
+use Repository\RepositoryComment;
+
 // AFFICHAGE DE CHAQUE ARTICLE ET DES COMMENTAIRES ASSOCIÉS
 
 class ControllerChapter
@@ -18,8 +26,6 @@ class ControllerChapter
  
     public function __invoke()
     {
-    
-        // session_start();
         // Contrôle du paramètre Get correspondant à l'Id de l'article
         // Le controller fait un test, un contrôle : il vérifie qu'on a reçu ou non en paramètre un id dans l'url ( $_GET['id'] )
 
@@ -35,11 +41,6 @@ class ControllerChapter
             $id = htmlentities($id);
 
             // Contrôle des champs obligatoires pour commenter un article
-            /*
-            if(!empty($_POST['add']))
-            {
-                extract($_POST);
-            */
 
             $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 

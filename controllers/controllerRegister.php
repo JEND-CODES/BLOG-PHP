@@ -1,6 +1,12 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryConnect;
+
+use Models\Connect;
+
+use Utils\Session;
 
 // ENREGISTREMENTS DE NOUVEAUX MEMBRES
 
@@ -16,14 +22,6 @@ class ControllerRegister
     
     public function __invoke()
     {
-
-        /*
-        session_start();
-
-        if(!empty($_SESSION['premium']))
-            header('Location:'.URL.'backoff');
-
-        */
 
         $session = new Session();
 
@@ -41,12 +39,6 @@ class ControllerRegister
         $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $formPseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_STRING);
-
-        /*
-        if(!empty($_POST['pseudo']))
-        {
-            extract($_POST);  
-        */
         
         if(!empty($formPseudo))
         {
@@ -75,17 +67,9 @@ class ControllerRegister
           </form>';
         }
 
-        // $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
         $formUser = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING);
 
         $formPassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-
-        /*
-        if(!empty($_POST['user']) && !empty($_POST['password']))
-        {
-            extract($_POST);  
-        */
         
         if(!empty($formUser) && !empty($formPassword))
         {

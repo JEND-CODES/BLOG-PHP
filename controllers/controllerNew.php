@@ -1,6 +1,12 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryChapter;
+
+use Models\Chapter;
+
+use Utils\Session;
 
 // EDITION D'UN NOUVEL ARTICLE EN BACK OFFICE
 
@@ -17,25 +23,12 @@ class ControllerNew
     public function __invoke()
     {
 
-        
-        // session_start();
-        /*
-        if(empty($_SESSION['premium']))
-            header('Location:'.URL.'home');
-        */
-
         $session = new Session();
 
         if(empty($session->vars['premium']))
             header('Location:'.URL.'home');
 
         $form = filter_input_array(INPUT_POST);
-
-        /*
-        if(!empty($_POST))
-        {
-            extract($_POST);
-        */
 
         if(!empty($form))
         {
@@ -48,10 +41,6 @@ class ControllerNew
             $chapi = htmlentities($chapi);
 
             $zerolink = htmlentities($zerolink);
-
-            //$author = htmlentities($author);
-
-            //$userid = htmlentities($userid);
 
             if(empty($title))
                 array_push($errors, 'Titre manquant');
@@ -66,9 +55,8 @@ class ControllerNew
                 array_push($errors, 'Contenu manquant');
 
             if(count($errors) == 0)
-            { 
-                //$edit = new Chapter(array('title'=>$title, 'content'=>$content,'chapi'=>$chapi,'zerolink'=>$zerolink,'author'=>$author,'userid'=>$userid));
-
+            {
+                
                 $edit = new Chapter(array('title'=>$title, 'content'=>$content,'chapi'=>$chapi,'zerolink'=>$zerolink));
 
                 $this->new_chapter->insertChapter($edit);

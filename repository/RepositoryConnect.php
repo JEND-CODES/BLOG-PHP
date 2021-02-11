@@ -1,5 +1,13 @@
 <?php
 
+namespace Repository;
+
+use \PDO;
+
+use Models\Connect;
+
+// use Repository\Database;
+
 class RepositoryConnect extends Database
 {
     

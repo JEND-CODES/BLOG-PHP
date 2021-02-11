@@ -1,5 +1,11 @@
 <?php
 
+namespace Repository;
+
+use \PDO;
+
+use Models\Chapter;
+
 class RepositoryChapter extends Database
 {
        

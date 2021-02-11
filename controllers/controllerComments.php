@@ -1,6 +1,10 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryComment;
+
+use Utils\Session;
 
 // GESTION DES COMMENTAIRES EN BACK OFFICE
 
@@ -15,17 +19,9 @@ class ControllerComments
     
     public function __invoke()
     {
-        
-        // session_start();
-
-        /*
-        if($_SESSION['member_id'] != 1)
-            header('Location:'.URL.'home');
-        */
 
         $session = new Session();
 
-        // if($_SESSION['member_id'] == 1)
         if($session->vars['member_id'] != 1)
             header('Location:'.URL.'home');
 
@@ -58,12 +54,6 @@ class ControllerComments
         $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $formDelete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_STRING);
-
-        /*
-        if(!empty($_POST['delete']))
-        {
-            extract($_POST);
-        */
         
         if(!empty($formDelete))
         {
@@ -77,12 +67,6 @@ class ControllerComments
 
         $formShow = filter_input(INPUT_POST, 'show', FILTER_SANITIZE_STRING);
 
-        /*
-        if(!empty($_POST['show']))
-        {
-            extract($_POST);
-        */
-        
         if(!empty($formShow))
         {
             extract($form); 

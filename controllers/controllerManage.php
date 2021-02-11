@@ -1,6 +1,10 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryConnect;
+
+use Utils\Session;
 
 // GESTION DES MEMBRES EN BACK OFFICE
 
@@ -18,13 +22,6 @@ class ControllerManage
     
     public function __invoke()
     {
-  
-        // session_start();
-
-        /*
-        if($_SESSION['member_id'] != 1)
-            header('Location:'.URL.'home');
-        */
 
         $session = new Session();
 
@@ -37,9 +34,6 @@ class ControllerManage
 
         // Renvoi du nombre total de managers validés
         $count_managers = $this->admin_infos->countManagers();
-
-        // Affichage des membres premium
-        // $getManagers = $this->admin_infos->infoManagers();
 
         $getPage = filter_input(INPUT_GET, 'page');
 
@@ -65,12 +59,6 @@ class ControllerManage
         $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         $formTrash = filter_input(INPUT_POST, 'trash_user', FILTER_SANITIZE_STRING);
-
-        /*
-        if(!empty($_POST['trash_user']))
-        {
-            extract($_POST);
-        */
         
         if(!empty($formTrash))
         {
@@ -83,14 +71,7 @@ class ControllerManage
         
 
         // Méthode pour mettre à jour un utilisateur -> il faut que l'on retrouve dans le formulaire les infos name=premium_user + name=update_role
-
         $formPremium = filter_input(INPUT_POST, 'premium_user', FILTER_SANITIZE_STRING);
-
-        /*
-        if(!empty($_POST['premium_user']))
-        {
-            extract($_POST);   
-        */
         
         if(!empty($formPremium))
         {
@@ -105,4 +86,5 @@ class ControllerManage
         require_once 'views/viewManage.php';
 
     }
+    
 }

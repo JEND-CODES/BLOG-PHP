@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use Repository\RepositoryChapter;
+
 // LISTE DES DERNIERS ARTICLES
 
 class ControllerPosts
@@ -15,8 +19,6 @@ class ControllerPosts
     
     public function __invoke()
     {
-        
-        // session_start();
 
         $count_chapters = $this->posts->totalChapters();
 

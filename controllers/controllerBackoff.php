@@ -1,6 +1,12 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryConnect;
+
+use Repository\RepositoryChapter;
+
+use Utils\Session;
 
 // ACCÈS AU BACK OFFICE
 
@@ -22,27 +28,18 @@ class ControllerBackoff
     
     public function __invoke()
     {
-        
-        // session_start();
-
-        /*
-        if(empty($_SESSION['premium']))
-            header('Location:'.URL.'home');
-        */
 
         $session = new Session();
 
         if(empty($session->vars['premium']))
             header('Location:'.URL.'home');
 
-        // if($_SESSION['member_id'] == 1)
         if($session->vars['member_id'] == 1)
         {
 
             // Renvoi du nombre total d'articles
             $count_chapters = $this->filter_chapters->totalChapters();
 
-            // $get = filter_input(INPUT_GET, 'param');
             $getPage = filter_input(INPUT_GET, 'page');
 
             // Gestion de la pagination pour l'administrateur
@@ -93,12 +90,6 @@ class ControllerBackoff
 
         $formDelete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_STRING);
 
-        /* 
-        if(!empty($_POST['delete']))
-        {
-            extract($_POST);    
-        */
-
         if(!empty($formDelete))
         {
             extract($form); 
@@ -111,4 +102,5 @@ class ControllerBackoff
         require_once 'views/viewBackoff.php';
 
     }
+    
 }

@@ -1,6 +1,10 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryConnect;
+
+use Utils\Session;
 
 // LOGIN ET SESSIONS POUR LES MEMBRES PREMIUM DU BLOG
 
@@ -12,32 +16,17 @@ class ControllerAccess
     {
         
         $this->member_log = new RepositoryConnect();
+        
     }
     
     public function __invoke()
     {
 
-        // session_start();
-        
-        // Si la session est en cours pour un membre
-        // if(!empty($_SESSION['premium']))
-            // Go to Back office Membres
-            // header('Location:'.URL.'backoff');
-
         $session = new Session();
 
         if(!empty($session->vars['premium']))
             header('Location:'.URL.'backoff');
-        
 
-        // Filtres de traitements de $_POST
-        // Filtrage de la superglobale au cas où elle aurait un contenu empoisonné
-        // Filtres de nettoyages
-        // https://www.php.net/manual/en/function.filter-input.php
-        // https://www.php.net/manual/en/function.filter-input-array.php
-        // https://www.php.net/manual/en/filter.filters.sanitize.php
-        // https://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
-        // $form = filter_input(INPUT_POST, 'var_name', FILTER_SANITIZE_STRING);
         $form = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
         if(!empty($form))
@@ -66,21 +55,12 @@ class ControllerAccess
                 if(!$return)
                     array_push($errors, 'Mauvais identifiants ou compte en attente de validation');
                 else
-                {
-
-                    // Activation de $_SESSION 
-                    // https://www.php.net/manual/fr/reserved.variables.session.php
-                    // https://www.php.net/manual/fr/ref.session.php
-                    
-                    // $session = new Session();
-        
+                {        
                     // Stockage en SESSION du Pseudo du membre connecté
                     $session->vars['premium'] = $member;
-                    // $_SESSION['premium'] = $member;
 
                     // Stockage en SESSION de l'ID du membre connecté
                     $session->vars['member_id'] = $return;
-                    // $_SESSION['member_id'] = $return;
                     
                     // L'accès au Back Office est dédié uniquement aux membres premium
                     header('Location:'.URL.'backoff');

@@ -1,6 +1,10 @@
 <?php
 
-// require_once 'utils/Session.php';
+namespace Controllers;
+
+use Repository\RepositoryChapter;
+
+use Utils\Session;
 
 // MISE À JOUR D'UN ARTICLE EN BACK OFFICE
 
@@ -15,13 +19,6 @@ class ControllerChange
     
     public function __invoke()
     {
-        
-        // session_start();
-
-        /*
-        if(empty($_SESSION['premium']))
-            header('Location:'.URL.'home');
-        */
 
         $session = new Session();
 
@@ -41,12 +38,6 @@ class ControllerChange
             $chapter = $this->post_bis->selectChapter($id);
             
             $form = filter_input_array(INPUT_POST);
-
-            /*
-            if(!empty($_POST))
-            {
-                extract ($_POST);
-            */
             
             if(!empty($form))
             {
@@ -98,4 +89,5 @@ class ControllerChange
         require_once 'views/viewChange.php';
 
     }
+    
 }

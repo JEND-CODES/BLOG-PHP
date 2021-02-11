@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Chapter extends Common
 {
     

@@ -1,5 +1,7 @@
 <?php
 
+namespace Utils;
+
 // CLASSE SESSION
 
 // Création d'une classe Session suite aux messages d'erreur Codacy repérés dans les controllers : "Direct use of $_SESSION Superglobal detected..."

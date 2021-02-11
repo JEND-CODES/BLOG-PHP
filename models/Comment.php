@@ -1,5 +1,7 @@
 <?php
 
+namespace Models;
+
 class Comment extends Common
 {
     private $_id;

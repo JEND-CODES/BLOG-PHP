@@ -1,17 +1,13 @@
 <?php
 
-// PAGE D'ACCUEIL
+namespace Controllers;
 
-class ControllerHome
+class ControllerHome 
 {
-   
-    public function __invoke()
+	public function __invoke()
     {
-
-        // session_start();
-
+        
         require 'views/viewHome.php';
 
     }
-  
 }

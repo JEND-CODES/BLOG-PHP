@@ -1,5 +1,11 @@
 <?php
 
+namespace Repository;
+
+use \PDO;
+
+use Models\Comment;
+
 class RepositoryComment extends Database
 {
     
