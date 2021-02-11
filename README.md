@@ -33,7 +33,11 @@
 
 * Views : XSS Security htmlspecialchars()
 
-* Rectifications multiples suite à la prise en compte des analyses Codacy
+* Restructuration de tous les fichiers avec des Namespaces
+
+* Router : réécriture de la fonction spl_autoload_register()
+
+* Révision de l\'instanciation automatique des Classes dans le Router
 ```
 
 
