@@ -20,24 +20,3 @@
 
 * LANCEZ VOTRE SERVEUR LOCAL POUR VISUALISER LE BLOG
 ```
-
-## Avancées
-``` bash
-* Mise à jour de la pagination avec $_GET et répercussions consécutives dans les Controllers et les Views
-
-* Refactorisation, nommage en anglais des Controllers et des Views
-
-* Création de la classe Session dans le dossier Utils et révision des controllers 
-
-* Sanitize $_POST + filter $_GET 
-
-* Views : XSS Security htmlspecialchars()
-
-* Restructuration de tous les fichiers avec des Namespaces
-
-* Router : réécriture de la fonction spl_autoload_register()
-
-* Révision des instanciations automatiques des Classes dans le Router
-```
-
-
