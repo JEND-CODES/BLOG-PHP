@@ -82,7 +82,7 @@ try
     }
     
     else {
-    
+        session_start();
         $controllerHome = new Controllers\ControllerHome();
         $controllerHome();
 
